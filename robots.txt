@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bina24jam.vercel.app/sitemap.xml
