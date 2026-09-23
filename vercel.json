@@ -1,4 +1,11 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/:page(about|contact|faq|how-it-works|packages|portfolio|terms)", "destination": "/:page.html" }
+  ],
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/:page(about|contact|faq|how-it-works|packages|portfolio|terms).html", "destination": "/:page", "permanent": true }
+  ]
 }
