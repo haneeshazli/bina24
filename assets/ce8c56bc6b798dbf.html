@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html><head><script>window.__resources={"https://unpkg.com/react@18.3.1/umd/react.production.min.js": "/assets/d949f1c3687aedad.js", "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "/assets/35f4f974f4b2bcd4.js"};</script><script src="/assets/d949f1c3687aedad.js"></script><script src="/assets/35f4f974f4b2bcd4.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/assets/8fe7df74405f3c55.js"></script>
+</head>
+
+<body>
+<x-dc>
+<helmet><style>
+  body{margin:0;}::placeholder{color:#9ca3af;}
+  @keyframes dotPulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.4;transform:scale(0.7);} }
+</style></helmet>
+<div style="font-family:Helvetica,Arial,sans-serif;border-radius:20px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,0.08);border:1px solid #27272a">
+  <div style="display:flex;align-items:center;gap:14px;background:#18181b;padding:14px 20px">
+    <div style="width:32px;height:32px;border-radius:8px;background:#84cc16;color:#18181b;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px">B</div>
+    <input placeholder="Search products..." style="flex:1;min-width:0;background:#27272a;border:none;border-radius:8px;padding:10px 14px;color:#d4d4d8;font-size:14px">
+    <div style="color:#a1a1aa;font-size:14px">binaweb24jam</div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;background:#fff">
+    <div style="flex:1 1 180px;background:#fafafa;border-right:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;padding:16px 0;display:flex;flex-wrap:wrap;align-content:flex-start">
+      <div style="padding:12px 24px;color:#374151;font-size:15px;flex:1 1 120px;box-sizing:border-box">Home</div>
+      <div style="padding:12px 24px;color:#374151;font-size:15px;flex:1 1 120px;box-sizing:border-box">Orders</div>
+      <div style="padding:12px 24px;background:#fff;font-weight:700;color:#18181b;font-size:15px;box-shadow:inset 3px 0 0 #18181b;flex:1 1 120px;box-sizing:border-box">Products</div>
+      <div style="padding:12px 24px;color:#374151;font-size:15px;flex:1 1 120px;box-sizing:border-box">Customers</div>
+      <div style="padding:12px 24px;color:#374151;font-size:15px;flex:1 1 120px;box-sizing:border-box">Analytics</div>
+    </div>
+    <div style="flex:999 1 0;min-width:min(100%,440px);box-sizing:border-box;padding:clamp(16px,4vw,28px) clamp(16px,4vw,32px);display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+        <div style="font-size:20px;font-weight:700;color:#18181b">Products</div>
+        <div style="background:#ecfccb;color:#4d7c0f;font-size:13px;font-weight:600;padding:6px 14px;border-radius:999px;display:flex;align-items:center;gap:6px"><span style="width:7px;height:7px;border-radius:50%;background:#84cc16;display:inline-block;animation:dotPulse 1.2s infinite"></span>Syncing</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) auto auto auto;column-gap:clamp(10px,3vw,40px);padding:10px 0;border-bottom:1px solid #e5e7eb;color:#9ca3af;font-size:13px;font-weight:600">
+        <div>Product</div><div style="text-align:right">Inventory</div><div style="text-align:right">Price</div><div style="text-align:right">Status</div>
+      </div>
+      <sc-for list="{{ products }}" as="p" hint-placeholder-count="3">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) auto auto auto;column-gap:clamp(10px,3vw,40px);align-items:center;padding:16px 0;border-bottom:1px solid #f1f1f1">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#ecfdf5,#f0fdf4)"></div>
+            <div style="font-weight:600;color:#18181b;font-size:15px">{{ p.name }}</div>
+          </div>
+          <div style="text-align:right;color:#374151;font-size:14px">{{ p.stock }} in stock</div>
+          <div style="text-align:right;font-weight:700;color:#18181b;font-size:14px">{{ p.price }}</div>
+          <div style="text-align:right;color:#16a34a;font-weight:600;font-size:14px">Synced</div>
+        </div>
+      </sc-for>
+      <div style="margin-top:auto;padding-top:40px;color:#9ca3af;font-size:13px">Last sync from your website: just now</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1600,&quot;height&quot;:790}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { products: [
+      { name: "Batik Shirt", stock: 128, price: "RM 89" },
+      { name: "Linen Tote", stock: 12, price: "RM 45" },
+      { name: "Kopi Beans", stock: 64, price: "RM 32" },
+    ] };
+  }
+}
+</script>
+
+
+</body></html>

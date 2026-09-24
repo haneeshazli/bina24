@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html><head><script>window.__resources={"https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "/assets/35f4f974f4b2bcd4.js", "https://unpkg.com/react@18.3.1/umd/react.production.min.js": "/assets/d949f1c3687aedad.js"};</script><script src="/assets/d949f1c3687aedad.js"></script><script src="/assets/35f4f974f4b2bcd4.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/assets/8fe7df74405f3c55.js"></script>
+</head>
+
+<body>
+<x-dc>
+<helmet><style>
+  body{margin:0;}
+  @keyframes cartBounce { 0%,100%{transform:scale(1);} 50%{transform:scale(1.25);} }
+</style></helmet>
+<div style="font-family:Helvetica,Arial,sans-serif;background:#f4f4f5;padding:clamp(8px,3vw,24px);border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,0.08)">
+  <div style="display:flex;align-items:center;gap:8px;padding:14px 20px">
+    <div style="width:12px;height:12px;border-radius:50%;background:#f04a4a"></div>
+    <div style="width:12px;height:12px;border-radius:50%;background:#f0b429"></div>
+    <div style="width:12px;height:12px;border-radius:50%;background:#22c55e"></div>
+    <div style="flex:1;margin-left:12px;background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:8px 14px;color:#6b7280;font-size:14px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">binaweb24jam.com/shop</div>
+  </div>
+  <div style="background:#fff;border-radius:0 0 16px 16px;border:1px solid #e5e7eb;border-top:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:clamp(14px,3vw,20px) clamp(16px,4vw,32px);border-bottom:1px solid #e5e7eb">
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px clamp(14px,4vw,32px)">
+        <div style="font-weight:800;font-size:18px;letter-spacing:0.04em;color:#18181b">BINAWEB</div>
+        <a href="#" style="color:#6b7280;font-size:15px;text-decoration:none">Shop</a>
+        <a href="#" style="color:#6b7280;font-size:15px;text-decoration:none">About</a>
+        <a href="#" style="color:#6b7280;font-size:15px;text-decoration:none">Contact</a>
+      </div>
+      <div style="background:#18181b;color:#fff;border-radius:999px;padding:10px 20px;font-weight:600;font-size:14px;display:flex;align-items:center;gap:10px">
+        Cart <span style="background:#f0b429;color:#18181b;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;animation:cartBounce 1.6s infinite">2</span>
+      </div>
+    </div>
+    <div style="padding:24px clamp(16px,4vw,32px) 40px">
+      <div style="font-weight:700;font-size:18px;color:#18181b;margin-bottom:20px">All Products</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:clamp(12px,3vw,24px)">
+        <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
+          <div style="border:1px solid #e5e7eb;border-radius:12px;overflow:hidden">
+            <div style="aspect-ratio:1;background:linear-gradient(135deg,#ecfdf5,#f0fdf4)"></div>
+            <div style="padding:14px 16px">
+              <div style="font-weight:700;color:#18181b;font-size:15px;margin-bottom:6px">{{ p.name }}</div>
+              <div style="color:#ca8a04;font-weight:700;font-size:14px">{{ p.price }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1650,&quot;height&quot;:780}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { products: [
+      { name: "Batik Shirt", price: "RM 89" },
+      { name: "Linen Tote", price: "RM 45" },
+      { name: "Kopi Beans", price: "RM 32" },
+      { name: "Ceramic Mug", price: "RM 28" },
+    ] };
+  }
+}
+</script>
+
+
+</body></html>
