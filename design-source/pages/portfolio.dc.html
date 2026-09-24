@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@1,8..60,600;1,8..60,700&display=swap">
+  <style>:root{--font-display-italic:'Source Serif 4',Georgia,serif !important}</style>
+<link rel="stylesheet" href="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/tokens/colors.css">
+<link rel="stylesheet" href="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/tokens/typography.css">
+<link rel="stylesheet" href="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/tokens/radius.css">
+<link rel="stylesheet" href="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/tokens/shadows.css">
+<link rel="stylesheet" href="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/styles.css">
+<script src="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  @keyframes rcRise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes rcRiseSm{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+  @media (max-width:920px){.rc-footer-grid{grid-template-columns:repeat(2,1fr) !important}}
+  @media (max-width:520px){.rc-footer-grid{grid-template-columns:1fr !important}}
+  *{box-sizing:border-box;}
+  :root{--grad-cta:linear-gradient(135deg,#2b4231 0%,#3f5f46 55%,#4f7657 100%);--grad-cta-hover:linear-gradient(135deg,#22362a 0%,#35513c 55%,#456a4d 100%);--grad-dark-card:linear-gradient(160deg,#0b150f 0%,#1b3121 58%,#2f4a37 100%);--grad-dark-panel:linear-gradient(135deg,#0e1a12 0%,#20392a 45%,#3f5f46 100%);}
+  body{margin:0;background:var(--bg-page);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;}
+  p{margin:0;}
+  a{color:var(--accent-green);text-decoration:none;}
+  a:hover{color:var(--color-charcoal);text-decoration:underline;}
+  summary{list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+</style>
+<script src="i18n-en.js"></script>
+<script src="i18n-en-2.js"></script>
+<script src="i18n.js"></script>
+</helmet>
+
+<div style="background:var(--bg-page);font-family:var(--font-sans);color:var(--text-primary);overflow-x:hidden">
+
+  <div style="background:linear-gradient(90deg,#0e1a12 0%,#20392a 55%,#3f5f46 100%);color:rgba(255,255,255,0.8)">
+    <div style="max-width:var(--content-max-width);margin:0 auto;padding:9px 20px;display:flex;flex-wrap:nowrap;gap:8px 20px;align-items:center;justify-content:space-between;font-size:13px">
+      <sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}"><a href="packages.dc.html" style="display:inline-flex;align-items:center;gap:10px;color:rgba(255,255,255,0.88);text-decoration:none;min-width:0" style-hover="color:var(--color-white);text-decoration:none"><span style="flex-shrink:0;border:1px solid rgba(255,255,255,0.28);color:rgba(255,255,255,0.9);font-size:10.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:2px 9px;border-radius:9999px">Promo</span><span>Website siap dari <strong style="color:var(--color-white);font-weight:600">RM299</strong>, live dalam 24 jam</span><span style="color:rgba(255,255,255,0.3)">·</span><span>Slot terhad bulan ini</span><span style="color:rgba(255,255,255,0.6)">→</span></a></sc-if>
+      <div style="display:flex;flex-wrap:nowrap;gap:8px 18px;align-items:center;white-space:nowrap">
+        <a href="{{ waHref }}" style="display:inline-flex;align-items:center;gap:7px;color:rgba(255,255,255,0.88);text-decoration:none" style-hover="color:var(--color-white);text-decoration:none"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="" width="14" height="14" style="width:14px;height:14px;opacity:0.85">WhatsApp kami</a>
+        <sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}"><span style="color:rgba(255,255,255,0.3)">|</span>
+        </sc-if>
+        
+        <div role="group" aria-label="Bahasa" style="display:flex;gap:2px;padding:2px;border-radius:9999px;border:1px solid rgba(255,255,255,0.22)"><button type="button" data-b24-lang="en" style="border:none;background:transparent;color:rgba(255,255,255,0.8);font-family:inherit;font-size:12px;font-weight:600;padding:3px 10px;border-radius:9999px;cursor:pointer">EN</button><button type="button" data-b24-lang="bm" style="border:none;background:rgba(255,255,255,0.16);color:var(--color-white);font-family:inherit;font-size:12px;font-weight:600;padding:3px 10px;border-radius:9999px;cursor:pointer">BM</button></div>
+      </div>
+    </div>
+  </div>
+
+  <header data-rc-nav="" style="position:sticky;top:0;z-index:50;background:var(--bg-page);border-bottom:1px solid var(--border-subtle)">
+    <div style="max-width:var(--content-max-width);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="Bina 24 Jam.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none">
+        <img src="assets/bina-logo-header-v2.png" alt="Bina 24 Jam" style="height:44px;width:auto;display:block">
+      </a>
+      <sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;gap:4px;font-size:14px;flex-wrap:wrap;justify-content:flex-end;align-items:center">
+          <a href="about.dc.html" style="padding:8px 10px;color:var(--text-primary)">Tentang Kami</a>
+          <a href="packages.dc.html" style="padding:8px 10px;color:var(--text-primary)">Pakej</a>
+          <a href="portfolio.dc.html" style="padding:8px 10px;color:var(--text-primary)">Portfolio</a>
+          <a href="how-it-works.dc.html" style="padding:8px 10px;color:var(--text-primary)">Cara Kerja</a>
+          <a href="faq.dc.html" style="padding:8px 10px;color:var(--text-primary)">FAQ</a>
+          <a href="terms.dc.html" style="padding:8px 10px;color:var(--text-primary)">Terma</a>
+          <a href="contact.dc.html" style="padding:8px 10px;color:var(--text-primary)">Hubungi</a>
+          <a href="packages.dc.html" style="margin-left:8px;display:inline-flex;align-items:center;gap:8px;background:var(--grad-cta);color:var(--color-white);border-radius:var(--radius-pill);padding:13px 20px;font-size:14px;font-weight:600;min-height:44px;box-sizing:border-box;text-decoration:none;transition:background 200ms ease;min-height:44px;box-sizing:border-box" style-hover="background:var(--grad-cta-hover)">Lihat Pakej</a>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <button aria-label="Buka menu" onClick="{{ toggleMobileNav }}" style="width:44px;height:44px;flex-shrink:0;border:1px solid var(--border-subtle);border-radius:var(--radius-comfortable);background:var(--color-white);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </sc-if>
+    </div>
+  </header>
+
+  <sc-if value="{{ mobileNavOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:70;background:rgba(16,25,19,0.5)" onClick="{{ closeMobileNav }}"></div>
+    <div style="position:fixed;top:0;right:0;bottom:0;z-index:71;width:min(84vw,340px);background:var(--color-white);box-shadow:-12px 0 40px rgba(16,25,19,0.2);display:flex;flex-direction:column;padding:16px;gap:4px;overflow-y:auto">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 4px 12px">
+        <span style="font-size:18px;font-weight:600;color:var(--text-primary)">Menu</span>
+        <button aria-label="Tutup menu" onClick="{{ closeMobileNav }}" style="width:44px;height:44px;border:none;background:none;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-primary)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+      </div>
+      <a href="about.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Tentang Kami</a>
+      <a href="packages.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Pakej</a>
+      <a href="portfolio.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Portfolio</a>
+      <a href="how-it-works.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Cara Kerja</a>
+      <a href="faq.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">FAQ</a>
+      <a href="terms.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Terma</a>
+      <a href="contact.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Hubungi</a>
+      <a href="packages.dc.html" onClick="{{ closeMobileNav }}" style="margin-top:10px;display:flex;align-items:center;justify-content:center;min-height:48px;background:var(--grad-cta);color:var(--color-white);border-radius:var(--radius-pill);font-size:16px;font-weight:600;text-decoration:none">Lihat Pakej</a>
+    </div>
+  </sc-if>
+
+  <section style="max-width:var(--content-max-width);margin:0 auto;padding:clamp(28px,6vw,56px) 20px 0;display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+    <x-import component-from-global-scope="RealcraftDesignSystem_0a0125.Badge" tone="lime" hint-size="auto,26px">Portfolio</x-import>
+    <h1 style="margin:0;font-size:clamp(30px,7.6vw,58px);line-height:1.03;letter-spacing:-1.5px;font-weight:600;color:var(--text-primary);max-width:24ch;text-wrap:pretty">Website Yang Kami <span style="font-family:var(--font-display-italic);font-style:italic;font-weight:600;color:var(--accent-green)">Bina</span></h1>
+    <p style="font-size:clamp(16px,4.2vw,19px);line-height:1.55;color:var(--text-body);max-width:56ch">Antara website yang kami reka untuk bisnes Malaysia. Setiap projek bermula dengan satu perbualan dan berakhir dengan hasil yang kami bangga.</p>
+  </section>
+
+  <section style="max-width:var(--content-max-width);margin:0 auto;padding:clamp(40px,7vw,72px) 20px">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;max-width:640px;margin:0 auto">
+      <h2 style="margin:0;font-size:clamp(24px,5.4vw,38px);line-height:1.08;letter-spacing:-1.1px;font-weight:600;color:var(--text-primary);text-wrap:pretty">Dibina untuk pelbagai industri</h2>
+      <p style="font-size:16px;line-height:1.6;color:var(--text-body)">Dari bisnes baru sampai SME mapan, pendidikan, makanan, kecantikan, hartanah, servis rumah dan banyak lagi.</p>
+      <span style="font-size:13px;color:var(--text-secondary)">Klik mana-mana kad untuk tengok website secara live</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:32px">
+      <a href="https://pferd.com.my" target="_blank" rel="noopener" style="cursor:pointer;text-decoration:none;color:inherit;background:linear-gradient(160deg,var(--color-lime-soft) 0%,var(--color-green-tint) 100%);border:1px solid rgba(63,95,70,0.14);border-radius:var(--radius-card);overflow:hidden;display:flex;flex-direction:column;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-green)">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(16,25,19,0.05)">
+          <span style="display:flex;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#f5665f"></span><span style="width:8px;height:8px;border-radius:50%;background:#f5b301"></span><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-green)"></span></span>
+          <span style="flex:1;min-width:0;text-align:center;font-size:11px;color:var(--text-secondary);background:rgba(255,255,255,0.55);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">pferd.com.my</span>
+        </div>
+        <div style="position:relative;width:100%;aspect-ratio:4/3;background:rgba(255,255,255,0.5)">
+          <image-slot id="pf-pferd" shape="rect" fit="cover" src="assets/portfolio/pferd.jpg" placeholder="Pferd website"></image-slot>
+        </div>
+        <div style="padding:13px;display:flex;flex-direction:column;gap:3px">
+          <span style="font-size:15px;font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)">Pferd</span>
+          <span style="font-size:12.5px;color:var(--text-secondary)">Peralatan Menunggang Kuda · Shah Alam</span>
+        </div>
+      </a>
+      <a href="https://www.vastiqsolutions.com/" target="_blank" rel="noopener" style="cursor:pointer;text-decoration:none;color:inherit;background:linear-gradient(160deg,var(--color-lime-soft) 0%,var(--color-green-tint) 100%);border:1px solid rgba(63,95,70,0.14);border-radius:var(--radius-card);overflow:hidden;display:flex;flex-direction:column;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-green)">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(16,25,19,0.05)">
+          <span style="display:flex;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#f5665f"></span><span style="width:8px;height:8px;border-radius:50%;background:#f5b301"></span><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-green)"></span></span>
+          <span style="flex:1;min-width:0;text-align:center;font-size:11px;color:var(--text-secondary);background:rgba(255,255,255,0.55);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">vastiqsolutions.com</span>
+        </div>
+        <div style="position:relative;width:100%;aspect-ratio:4/3;background:rgba(255,255,255,0.5)">
+          <image-slot id="pf-vastiqsolutions" shape="rect" fit="cover" src="assets/portfolio/vastiqsolutions.jpg" placeholder="Vastiq Solutions website"></image-slot>
+        </div>
+        <div style="padding:13px;display:flex;flex-direction:column;gap:3px">
+          <span style="font-size:15px;font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)">Vastiq Solutions</span>
+          <span style="font-size:12.5px;color:var(--text-secondary)">Keselamatan AI &amp; Automasi · Sri Kembangan</span>
+        </div>
+      </a>
+      <a href="https://aosis-mont-kiara.vercel.app/" target="_blank" rel="noopener" style="cursor:pointer;text-decoration:none;color:inherit;background:linear-gradient(160deg,var(--color-lime-soft) 0%,var(--color-green-tint) 100%);border:1px solid rgba(63,95,70,0.14);border-radius:var(--radius-card);overflow:hidden;display:flex;flex-direction:column;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-green)">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(16,25,19,0.05)">
+          <span style="display:flex;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#f5665f"></span><span style="width:8px;height:8px;border-radius:50%;background:#f5b301"></span><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-green)"></span></span>
+          <span style="flex:1;min-width:0;text-align:center;font-size:11px;color:var(--text-secondary);background:rgba(255,255,255,0.55);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">aosis-mont-kiara.vercel.app</span>
+        </div>
+        <div style="position:relative;width:100%;aspect-ratio:4/3;background:rgba(255,255,255,0.5)">
+          <image-slot id="pf-aosis-mont-kiara" shape="rect" fit="cover" src="assets/portfolio/aosis-mont-kiara.jpg" placeholder="Aosis Mont Kiara website"></image-slot>
+        </div>
+        <div style="padding:13px;display:flex;flex-direction:column;gap:3px">
+          <span style="font-size:15px;font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)">Aosis Mont Kiara</span>
+          <span style="font-size:12.5px;color:var(--text-secondary)">Pelancaran Hartanah · Mont Kiara</span>
+        </div>
+      </a>
+      <a href="https://kirakaun.com/" target="_blank" rel="noopener" style="cursor:pointer;text-decoration:none;color:inherit;background:linear-gradient(160deg,var(--color-lime-soft) 0%,var(--color-green-tint) 100%);border:1px solid rgba(63,95,70,0.14);border-radius:var(--radius-card);overflow:hidden;display:flex;flex-direction:column;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-green)">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(16,25,19,0.05)">
+          <span style="display:flex;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#f5665f"></span><span style="width:8px;height:8px;border-radius:50%;background:#f5b301"></span><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-green)"></span></span>
+          <span style="flex:1;min-width:0;text-align:center;font-size:11px;color:var(--text-secondary);background:rgba(255,255,255,0.55);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">kirakaun.com</span>
+        </div>
+        <div style="position:relative;width:100%;aspect-ratio:4/3;background:rgba(255,255,255,0.5)">
+          <image-slot id="pf-kirakaun" shape="rect" fit="cover" src="assets/portfolio/kirakaun.jpg" placeholder="KiraKaun website"></image-slot>
+        </div>
+        <div style="padding:13px;display:flex;flex-direction:column;gap:3px">
+          <span style="font-size:15px;font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)">KiraKaun</span>
+          <span style="font-size:12.5px;color:var(--text-secondary)">SaaS Perakaunan · Malaysia</span>
+        </div>
+      </a>
+      <a href="https://www.klinikdrsitidanrakan.com/" target="_blank" rel="noopener" style="cursor:pointer;text-decoration:none;color:inherit;background:linear-gradient(160deg,var(--color-lime-soft) 0%,var(--color-green-tint) 100%);border:1px solid rgba(63,95,70,0.14);border-radius:var(--radius-card);overflow:hidden;display:flex;flex-direction:column;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-green)">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(16,25,19,0.05)">
+          <span style="display:flex;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#f5665f"></span><span style="width:8px;height:8px;border-radius:50%;background:#f5b301"></span><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-green)"></span></span>
+          <span style="flex:1;min-width:0;text-align:center;font-size:11px;color:var(--text-secondary);background:rgba(255,255,255,0.55);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">klinikdrsitidanrakan.com</span>
+        </div>
+        <div style="position:relative;width:100%;aspect-ratio:4/3;background:rgba(255,255,255,0.5)">
+          <image-slot id="pf-klinikdrsitidanrakan" shape="rect" fit="cover" src="assets/portfolio/klinikdrsitidanrakan.jpg" placeholder="Klinik Dr Siti & Rakan2 website"></image-slot>
+        </div>
+        <div style="padding:13px;display:flex;flex-direction:column;gap:3px">
+          <span style="font-size:15px;font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)">Klinik Dr Siti &amp; Rakan2</span>
+          <span style="font-size:12.5px;color:var(--text-secondary)">Klinik Perubatan · Malaysia</span>
+        </div>
+      </a>
+      <a href="https://janine.com.my" target="_blank" rel="noopener" style="cursor:pointer;text-decoration:none;color:inherit;background:linear-gradient(160deg,var(--color-lime-soft) 0%,var(--color-green-tint) 100%);border:1px solid rgba(63,95,70,0.14);border-radius:var(--radius-card);overflow:hidden;display:flex;flex-direction:column;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-green)">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(16,25,19,0.05)">
+          <span style="display:flex;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#f5665f"></span><span style="width:8px;height:8px;border-radius:50%;background:#f5b301"></span><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-green)"></span></span>
+          <span style="flex:1;min-width:0;text-align:center;font-size:11px;color:var(--text-secondary);background:rgba(255,255,255,0.55);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">janine.com.my</span>
+        </div>
+        <div style="position:relative;width:100%;aspect-ratio:4/3;background:rgba(255,255,255,0.5)">
+          <image-slot id="pf-janine" shape="rect" fit="cover" src="assets/portfolio/janine.jpg" placeholder="Janine website"></image-slot>
+        </div>
+        <div style="padding:13px;display:flex;flex-direction:column;gap:3px">
+          <span style="font-size:15px;font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)">Janine</span>
+          <span style="font-size:12.5px;color:var(--text-secondary)">Kedai Perabot · Kuala Lumpur</span>
+        </div>
+      </a>
+      <a href="https://zuhaltraveltours.com/" target="_blank" rel="noopener" style="cursor:pointer;text-decoration:none;color:inherit;background:linear-gradient(160deg,var(--color-lime-soft) 0%,var(--color-green-tint) 100%);border:1px solid rgba(63,95,70,0.14);border-radius:var(--radius-card);overflow:hidden;display:flex;flex-direction:column;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-green)">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(16,25,19,0.05)">
+          <span style="display:flex;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#f5665f"></span><span style="width:8px;height:8px;border-radius:50%;background:#f5b301"></span><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-green)"></span></span>
+          <span style="flex:1;min-width:0;text-align:center;font-size:11px;color:var(--text-secondary);background:rgba(255,255,255,0.55);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">zuhaltraveltours.com</span>
+        </div>
+        <div style="position:relative;width:100%;aspect-ratio:4/3;background:rgba(255,255,255,0.5)">
+          <image-slot id="pf-zuhaltraveltours" shape="rect" fit="cover" src="assets/portfolio/zuhaltraveltours.jpg" placeholder="Zuhal Travel & Tours website"></image-slot>
+        </div>
+        <div style="padding:13px;display:flex;flex-direction:column;gap:3px">
+          <span style="font-size:15px;font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)">Zuhal Travel &amp; Tours</span>
+          <span style="font-size:12.5px;color:var(--text-secondary)">Agensi Pelancongan · Malaysia</span>
+        </div>
+      </a>
+      <a href="https://www.grandpride.com/" target="_blank" rel="noopener" style="cursor:pointer;text-decoration:none;color:inherit;background:linear-gradient(160deg,var(--color-lime-soft) 0%,var(--color-green-tint) 100%);border:1px solid rgba(63,95,70,0.14);border-radius:var(--radius-card);overflow:hidden;display:flex;flex-direction:column;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-green)">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(16,25,19,0.05)">
+          <span style="display:flex;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#f5665f"></span><span style="width:8px;height:8px;border-radius:50%;background:#f5b301"></span><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-green)"></span></span>
+          <span style="flex:1;min-width:0;text-align:center;font-size:11px;color:var(--text-secondary);background:rgba(255,255,255,0.55);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">grandpride.com</span>
+        </div>
+        <div style="position:relative;width:100%;aspect-ratio:4/3;background:rgba(255,255,255,0.5)">
+          <image-slot id="pf-grandpride" shape="rect" fit="cover" src="assets/portfolio/grandpride.jpg" placeholder="Grand Pride website"></image-slot>
+        </div>
+        <div style="padding:13px;display:flex;flex-direction:column;gap:3px">
+          <span style="font-size:15px;font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)">Grand Pride</span>
+          <span style="font-size:12.5px;color:var(--text-secondary)">Platform Sewa Kereta &amp; Pemandu</span>
+        </div>
+      </a>
+      <a href="https://jomventures.my/" target="_blank" rel="noopener" style="cursor:pointer;text-decoration:none;color:inherit;background:linear-gradient(160deg,var(--color-lime-soft) 0%,var(--color-green-tint) 100%);border:1px solid rgba(63,95,70,0.14);border-radius:var(--radius-card);overflow:hidden;display:flex;flex-direction:column;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-green)">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(16,25,19,0.05)">
+          <span style="display:flex;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#f5665f"></span><span style="width:8px;height:8px;border-radius:50%;background:#f5b301"></span><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-green)"></span></span>
+          <span style="flex:1;min-width:0;text-align:center;font-size:11px;color:var(--text-secondary);background:rgba(255,255,255,0.55);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">jomventures.my</span>
+        </div>
+        <div style="position:relative;width:100%;aspect-ratio:4/3;background:rgba(255,255,255,0.5)">
+          <image-slot id="pf-jomventures" shape="rect" fit="cover" src="assets/portfolio/jomventures.jpg" placeholder="Jomventures Travel & Tours website"></image-slot>
+        </div>
+        <div style="padding:13px;display:flex;flex-direction:column;gap:3px">
+          <span style="font-size:15px;font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)">Jomventures Travel &amp; Tours</span>
+          <span style="font-size:12.5px;color:var(--text-secondary)">Agensi Pelancongan · Malaysia</span>
+        </div>
+      </a>
+      </div>
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;margin-top:40px">
+      <p style="font-size:16px;line-height:1.6;color:var(--text-body);max-width:52ch">Ini sebahagian kecil sahaja dari kerja kami. Apa pun bisnes anda, kami pernah bina sesuatu yang seakan-akan, dan kami boleh bina milik anda dalam 24 jam.</p>
+      <div style="display:grid;min-width:250px">
+        <a href="packages.dc.html" style="text-decoration:none;display:grid">
+          <span style="display:flex;align-items:center;justify-content:center;gap:8px;border-radius:var(--radius-pill);font-weight:600;font-size:15.5px;min-height:52px;box-sizing:border-box;padding:14px 20px;width:100%;transition:background 200ms ease;background:var(--grad-cta);color:var(--color-white)" style-hover="background:var(--grad-cta-hover)">Jom Bina Milik Anda →</span>
+        </a>
+      </div>
+      <span style="font-size:14px;color:var(--text-secondary)">Deposit 30% untuk mula · baki hanya selepas anda puas hati</span>
+    </div>
+  </section>
+
+  <section style="max-width:var(--content-max-width);margin:0 auto;padding:clamp(24px,5vw,44px) 20px">
+    <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start;max-width:56ch">
+      <span style="font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--text-secondary);font-weight:600">Industri</span>
+      <h2 style="margin:0;font-size:clamp(24px,5.6vw,40px);line-height:1.06;letter-spacing:-1px;font-weight:600;color:var(--text-primary)">Kami faham bahasa customer anda</h2>
+      <p style="font-size:16px;line-height:1.6;color:var(--text-body)">Setiap industri ada cara conversion tersendiri. Design kami disesuaikan, warna, nada, struktur dan call-to-action, ikut apa yang customer anda harapkan.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:24px">
+      <div style="background:var(--surface-card-tint);border-radius:var(--radius-card);padding:20px;display:flex;flex-direction:column;gap:8px"><span style="font-size:17px;font-weight:600;color:var(--text-primary)">Makanan &amp; Minuman</span><p style="font-size:15px;line-height:1.5;color:var(--text-body)">Design yang buat orang lapar: menu, gambar, waktu buka dan arah jalan di tempat yang customer cari.</p></div>
+      <div style="background:var(--surface-card-tint);border-radius:var(--radius-card);padding:20px;display:flex;flex-direction:column;gap:8px"><span style="font-size:17px;font-weight:600;color:var(--text-primary)">Pendidikan &amp; Pembelajaran</span><p style="font-size:15px;line-height:1.5;color:var(--text-body)">Layout yang bina kepercayaan untuk pusat tuisyen dan tutor, program, kelayakan dan enquiry pendaftaran yang mudah.</p></div>
+      <div style="background:var(--surface-card-tint);border-radius:var(--radius-card);padding:20px;display:flex;flex-direction:column;gap:8px"><span style="font-size:17px;font-weight:600;color:var(--text-primary)">Servis Rumah &amp; Renovation</span><p style="font-size:15px;line-height:1.5;color:var(--text-body)">Galeri sebelum/selepas, kawasan servis dan permintaan sebut harga segera untuk kontraktor dan pakar.</p></div>
+      <div style="background:var(--surface-card-tint);border-radius:var(--radius-card);padding:20px;display:flex;flex-direction:column;gap:8px"><span style="font-size:17px;font-weight:600;color:var(--text-primary)">Runcit &amp; Kedai Tempatan</span><p style="font-size:15px;line-height:1.5;color:var(--text-body)">Produk pilihan, lokasi dan waktu operasi, semua yang customer perlu untuk pilih anda berbanding mall.</p></div>
+      <div style="background:var(--surface-card-tint);border-radius:var(--radius-card);padding:20px;display:flex;flex-direction:column;gap:8px"><span style="font-size:17px;font-weight:600;color:var(--text-primary)">Kesihatan &amp; Wellness</span><p style="font-size:15px;line-height:1.5;color:var(--text-body)">Design bersih dan menenangkan untuk klinik, terapis dan studio, dengan struktur yang utamakan booking.</p></div>
+      <div style="background:var(--surface-card-tint);border-radius:var(--radius-card);padding:20px;display:flex;flex-direction:column;gap:8px"><span style="font-size:17px;font-weight:600;color:var(--text-primary)">Servis Profesional</span><p style="font-size:15px;line-height:1.5;color:var(--text-body)">Website yang serius dan meyakinkan untuk perunding, agensi dan firma yang perlu nampak mapan.</p></div>
+    </div>
+  </section>
+
+  <section style="max-width:var(--content-max-width);margin:0 auto;padding:0 20px">
+    <div style="background:var(--surface-dark);border-radius:var(--radius-container);padding:clamp(24px,5vw,56px);display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+      <h2 style="margin:0;font-size:clamp(26px,6vw,42px);line-height:1.05;letter-spacing:-1.1px;font-weight:600;color:var(--text-on-dark);max-width:24ch">Bisnes anda mungkin yang seterusnya di page ini.</h2>
+      <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.72);max-width:52ch">Pilih pakej dan bayar deposit 30% hari ini, semak website siap anda sebelum baki perlu dijelaskan.</p>
+      <div style="display:grid;gap:10px;width:100%;max-width:340px">
+        <a href="packages.dc.html" style="text-decoration:none;display:grid">
+          <span style="display:flex;align-items:center;justify-content:center;gap:8px;border-radius:var(--radius-pill);font-weight:600;font-size:15.5px;min-height:52px;box-sizing:border-box;padding:14px 20px;width:100%;transition:background 200ms ease;background:var(--grad-cta);color:var(--color-white)" style-hover="background:var(--grad-cta-hover)">Mula Sekarang RM299</span>
+        </a>
+        <a href="{{ waHref }}" style="text-decoration:none;display:grid">
+          <span style="display:flex;align-items:center;justify-content:center;gap:8px;border-radius:var(--radius-pill);font-weight:600;font-size:15.5px;min-height:52px;box-sizing:border-box;padding:14px 20px;width:100%;transition:background 200ms ease;background:var(--color-white);border:1px solid var(--border-interactive);color:var(--text-primary)" style-hover="background:var(--hover-tint)">WhatsApp kami</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="margin-top:clamp(56px,8vw,112px);background:linear-gradient(180deg,#2c4a33 0%,#1a2e1f 55%,#0e1a12 100%)">
+    <div class="rc-footer-grid" style="max-width:1040px;margin:0 auto;padding:clamp(36px,5vw,56px) 24px clamp(28px,3vw,36px);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:start">
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:340px">
+        <div style="display:flex;align-items:center;gap:8px">
+          <img src="assets/bina-logo-footer-v2.png" alt="Bina 24 Jam" style="height:56px;width:auto;display:block">
+        </div>
+        <p style="font-size:15px;line-height:1.55;color:rgba(255,255,255,0.7);max-width:30ch">Laju, kemas, siap dalam 24 jam. Website untuk bisnes Malaysia, dari RM299.</p>
+        <a href="{{ waHref }}" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent-green);color:var(--color-white);font-size:15px;font-weight:600;padding:13px 22px;border-radius:var(--radius-pill);text-decoration:none;width:fit-content" style-hover="opacity:0.85;color:var(--surface-dark)">WhatsApp kami</a>
+        <span style="font-size:14px;color:rgba(255,255,255,0.55)">Selangor, Malaysia</span>
+        <div style="display:flex;gap:10px;margin-top:4px">
+          <a href="https://www.instagram.com/bina24jam?stkn=YzJpcmhldndtdGVu&amp;utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7)" style-hover="border-color:var(--accent-lime);color:var(--accent-lime)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"></circle></svg>
+          </a>
+          <a href="https://www.facebook.com/share/19jDjc7cBN/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7)" style-hover="border-color:var(--accent-lime);color:var(--accent-lime)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 8.5h2.5V5h-2.7C11.5 5 10 6.6 10 9v2.2H8V15h2v6h3v-6h2.3l.4-3.8H13V9c0-.4.2-.5.6-.5H14z"></path></svg>
+          </a>
+          <a href="https://www.threads.com/@bina24jam?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener" aria-label="Threads" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7)" style-hover="border-color:var(--accent-lime);color:var(--accent-lime)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.4 8.4C18.4 5.6 15.9 4.2 12.3 4.2 7.3 4.2 4.4 7.3 4.4 12s2.9 7.8 7.9 7.8c4.3 0 7.2-1.9 7.2-4.7 0-1.9-1.5-3.1-4.7-3.1"></path><path d="M9 9.6c.6-1.4 1.6-2.2 3-2.2 1.9 0 2.8 1.4 2.8 3.6v3.2"></path><circle cx="12.2" cy="14.1" r="2.6"></circle></svg>
+          </a>
+          <a href="{{ waHref }}" aria-label="WhatsApp" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7)" style-hover="border-color:var(--accent-lime);color:var(--accent-lime)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M3.6 20.4l1.3-4.6A8.9 8.9 0 1 1 8.2 19.1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path fill="currentColor" d="M9.1 7.6c-.2-.4-.3-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.9 4.5 4 2.2.9 2.7.7 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.6-1.5-1.9-.2-.3 0-.4.1-.5l.4-.4.3-.5c.1-.2 0-.3 0-.4l-.8-2z"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent-lime);padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.14)">Syarikat</span>
+        <a href="about.dc.html" style="font-size:15px;color:rgba(255,255,255,0.74);padding:2px 0" style-hover="color:var(--color-white)">Tentang Kami</a>
+        <a href="portfolio.dc.html" style="font-size:15px;color:rgba(255,255,255,0.74);padding:2px 0" style-hover="color:var(--color-white)">Portfolio</a>
+        <a href="how-it-works.dc.html" style="font-size:15px;color:rgba(255,255,255,0.74);padding:2px 0" style-hover="color:var(--color-white)">Cara Kerja</a>
+        <a href="faq.dc.html" style="font-size:15px;color:rgba(255,255,255,0.74);padding:2px 0" style-hover="color:var(--color-white)">FAQ</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent-lime);padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.14)">Mula di sini</span>
+        <a href="contact.dc.html" style="font-size:15px;color:rgba(255,255,255,0.74);padding:2px 0" style-hover="color:var(--color-white)">Hubungi kami</a>
+        <a href="packages.dc.html" style="font-size:15px;color:rgba(255,255,255,0.74);padding:2px 0" style-hover="color:var(--color-white)">Pilih pakej</a>
+        <a href="Bina 24 Jam.dc.html" style="font-size:15px;color:rgba(255,255,255,0.74);padding:2px 0" style-hover="color:var(--color-white)">Laman Utama</a>
+        <p style="font-size:14px;line-height:1.5;color:rgba(255,255,255,0.55);margin-top:4px">Deposit 30% untuk mula. Baki hanya selepas anda puas hati.</p>
+      </div>
+    </div>
+    <div style="max-width:1040px;margin:0 auto;padding:18px 24px calc(20px + 84px);border-top:1px solid rgba(255,255,255,0.14);display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between">
+      <span style="font-size:13px;color:rgba(255,255,255,0.5)">© 2026 Bina 24 Jam. Hak cipta terpelihara.</span>
+      <div style="display:flex;gap:18px">
+        <a href="#" style="font-size:13px;color:rgba(255,255,255,0.5)" style-hover="color:var(--color-white)">Dasar Privasi</a>
+        <a href="terms.dc.html" style="font-size:13px;color:rgba(255,255,255,0.5)" style-hover="color:var(--color-white)">Terma</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;601175112280&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;whatsappMessage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Hi Bina 24 Jam! Saya nak tanya pasal website untuk bisnes saya.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.onResize = this.onResize.bind(this);
+    this.state = { mobileNavOpen: false, isMobile: (typeof window !== 'undefined' && window.innerWidth < 768) };
+  }
+  onResize() {
+    const isMobile = window.innerWidth < 768;
+    if (isMobile !== this.state.isMobile) this.setState({ isMobile, mobileNavOpen: isMobile ? this.state.mobileNavOpen : false });
+  }
+  componentDidMount() {
+    window.addEventListener('resize', this.onResize);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+  }
+  renderVals() {
+    const wa = (this.props.whatsappNumber ?? '601175112280').replace(/[^0-9]/g, '');
+    const msg = encodeURIComponent(this.props.whatsappMessage ?? "Hi Bina 24 Jam! Saya nak tanya pasal website untuk bisnes saya.");
+    return {
+      isMobile: this.state.isMobile,
+      showDesktopNav: !this.state.isMobile,
+      mobileNavOpen: this.state.isMobile && this.state.mobileNavOpen,
+      toggleMobileNav: () => this.setState(s => ({ mobileNavOpen: !s.mobileNavOpen })),
+      closeMobileNav: () => this.setState({ mobileNavOpen: false }),
+      waHref: 'https://wa.me/' + wa + '?text=' + msg,
+      ctaProps: { style: { width: '100%', padding: '15px 22px', fontSize: 17, minHeight: 52 } },
+      barProps: { style: { width: '100%', padding: '12px 14px', fontSize: 15, minHeight: 46 } }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

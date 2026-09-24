@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@1,8..60,600;1,8..60,700&display=swap">
+  <style>:root{--font-display-italic:'Source Serif 4',Georgia,serif !important}</style>
+<link rel="stylesheet" href="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/tokens/colors.css">
+<link rel="stylesheet" href="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/tokens/typography.css">
+<link rel="stylesheet" href="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/tokens/radius.css">
+<link rel="stylesheet" href="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/tokens/shadows.css">
+<link rel="stylesheet" href="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/styles.css">
+<script src="_ds/copy-of-realcraft-design-system-01c972fb-e7bb-4005-a8ab-c2098a65e911/_ds_bundle.js"></script>
+<style>
+  @keyframes rcRise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes rcRiseSm{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+  @media (max-width:900px){.rc-terms-grid{grid-template-columns:1fr !important}.rc-terms-toc{display:none !important}}
+  @media (max-width:920px){.rc-footer-grid{grid-template-columns:repeat(2,1fr) !important}}
+  @media (max-width:520px){.rc-footer-grid{grid-template-columns:1fr !important}}
+  *{box-sizing:border-box;}
+  :root{--grad-cta:linear-gradient(135deg,#2b4231 0%,#3f5f46 55%,#4f7657 100%);--grad-cta-hover:linear-gradient(135deg,#22362a 0%,#35513c 55%,#456a4d 100%);--grad-dark-card:linear-gradient(160deg,#0b150f 0%,#1b3121 58%,#2f4a37 100%);--grad-dark-panel:linear-gradient(135deg,#0e1a12 0%,#20392a 45%,#3f5f46 100%);}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg-page);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;}
+  p{margin:0;}
+  a{color:var(--accent-green);text-decoration:none;}
+  a:hover{color:var(--color-charcoal);text-decoration:underline;}
+  summary{list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+  details summary::-webkit-details-marker{display:none;}
+</style>
+<script src="i18n-en.js"></script>
+<script src="i18n-en-2.js"></script>
+<script src="i18n-en-terms.js"></script>
+<script src="i18n.js"></script>
+</helmet>
+
+<div style="background:var(--bg-page);font-family:var(--font-sans);color:var(--text-primary);overflow-x:hidden">
+
+  <div style="background:linear-gradient(90deg,#0e1a12 0%,#20392a 55%,#3f5f46 100%);color:rgba(255,255,255,0.8)">
+    <div style="max-width:var(--content-max-width);margin:0 auto;padding:9px 20px;display:flex;flex-wrap:nowrap;gap:8px 20px;align-items:center;justify-content:space-between;font-size:13px">
+      <sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}"><a href="packages.dc.html" style="display:inline-flex;align-items:center;gap:10px;color:rgba(255,255,255,0.88);text-decoration:none;min-width:0" style-hover="color:var(--color-white);text-decoration:none"><span style="flex-shrink:0;border:1px solid rgba(255,255,255,0.28);color:rgba(255,255,255,0.9);font-size:10.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:2px 9px;border-radius:9999px">Promo</span><span>Website siap dari <strong style="color:var(--color-white);font-weight:600">RM299</strong>, live dalam 24 jam</span><span style="color:rgba(255,255,255,0.3)">·</span><span>Slot terhad bulan ini</span><span style="color:rgba(255,255,255,0.6)">→</span></a></sc-if>
+      <div style="display:flex;flex-wrap:nowrap;gap:8px 18px;align-items:center;white-space:nowrap">
+        <a href="{{ waHref }}" style="display:inline-flex;align-items:center;gap:7px;color:rgba(255,255,255,0.88);text-decoration:none" style-hover="color:var(--color-white);text-decoration:none"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="" width="14" height="14" style="width:14px;height:14px;opacity:0.85">WhatsApp kami</a>
+        <sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}"><span style="color:rgba(255,255,255,0.3)">|</span>
+        </sc-if>
+        
+        <div role="group" aria-label="Bahasa" style="display:flex;gap:2px;padding:2px;border-radius:9999px;border:1px solid rgba(255,255,255,0.22)"><button type="button" data-b24-lang="en" style="border:none;background:transparent;color:rgba(255,255,255,0.8);font-family:inherit;font-size:12px;font-weight:600;padding:3px 10px;border-radius:9999px;cursor:pointer">EN</button><button type="button" data-b24-lang="bm" style="border:none;background:rgba(255,255,255,0.16);color:var(--color-white);font-family:inherit;font-size:12px;font-weight:600;padding:3px 10px;border-radius:9999px;cursor:pointer">BM</button></div>
+      </div>
+    </div>
+  </div>
+
+  <header data-rc-nav="" style="position:sticky;top:0;z-index:50;background:var(--bg-page);border-bottom:1px solid var(--border-subtle)">
+    <div style="max-width:var(--content-max-width);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="Bina 24 Jam.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none">
+        <img src="assets/bina-logo-header-v2.png" alt="Bina 24 Jam" style="height:44px;width:auto;display:block">
+      </a>
+      <sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;gap:4px;font-size:14px;flex-wrap:wrap;justify-content:flex-end;align-items:center">
+          <a href="about.dc.html" style="padding:8px 10px;color:var(--text-primary)">Tentang Kami</a>
+          <a href="packages.dc.html" style="padding:8px 10px;color:var(--text-primary)">Pakej</a>
+          <a href="portfolio.dc.html" style="padding:8px 10px;color:var(--text-primary)">Portfolio</a>
+          <a href="how-it-works.dc.html" style="padding:8px 10px;color:var(--text-primary)">Cara Kerja</a>
+          <a href="faq.dc.html" style="padding:8px 10px;color:var(--text-primary)">FAQ</a>
+          <a href="terms.dc.html" style="padding:8px 10px;color:var(--text-primary)">Terma</a>
+          <a href="contact.dc.html" style="padding:8px 10px;color:var(--text-primary)">Hubungi</a>
+          <a href="packages.dc.html" style="margin-left:8px;display:inline-flex;align-items:center;gap:8px;background:var(--grad-cta);color:var(--color-white);border-radius:var(--radius-pill);padding:13px 20px;font-size:14px;font-weight:600;min-height:44px;box-sizing:border-box;text-decoration:none;transition:background 200ms ease;min-height:44px;box-sizing:border-box" style-hover="background:var(--grad-cta-hover)">Lihat Pakej</a>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <button aria-label="Buka menu" onClick="{{ toggleMobileNav }}" style="width:44px;height:44px;flex-shrink:0;border:1px solid var(--border-subtle);border-radius:var(--radius-comfortable);background:var(--color-white);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </sc-if>
+    </div>
+  </header>
+
+  <sc-if value="{{ mobileNavOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:70;background:rgba(16,25,19,0.5)" onClick="{{ closeMobileNav }}"></div>
+    <div style="position:fixed;top:0;right:0;bottom:0;z-index:71;width:min(84vw,340px);background:var(--color-white);box-shadow:-12px 0 40px rgba(16,25,19,0.2);display:flex;flex-direction:column;padding:16px;gap:4px;overflow-y:auto">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 4px 12px">
+        <span style="font-size:18px;font-weight:600;color:var(--text-primary)">Menu</span>
+        <button aria-label="Tutup menu" onClick="{{ closeMobileNav }}" style="width:44px;height:44px;border:none;background:none;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-primary)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+      </div>
+      <a href="about.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Tentang Kami</a>
+      <a href="packages.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Pakej</a>
+      <a href="portfolio.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Portfolio</a>
+      <a href="how-it-works.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Cara Kerja</a>
+      <a href="faq.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">FAQ</a>
+      <a href="terms.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Terma</a>
+      <a href="contact.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Hubungi</a>
+      <a href="packages.dc.html" onClick="{{ closeMobileNav }}" style="margin-top:10px;display:flex;align-items:center;justify-content:center;min-height:48px;background:var(--grad-cta);color:var(--color-white);border-radius:var(--radius-pill);font-size:16px;font-weight:600;text-decoration:none">Lihat Pakej</a>
+    </div>
+  </sc-if>
+
+  <section style="max-width:var(--content-max-width);margin:0 auto;padding:clamp(28px,6vw,56px) 20px 0;display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+    <x-import component-from-global-scope="RealcraftDesignSystem_0a0125.Badge" tone="lime" hint-size="auto,26px">Dokumen Servis</x-import>
+    <h1 style="margin:0;font-size:clamp(34px,8vw,60px);line-height:1.03;letter-spacing:-1.5px;font-weight:600;color:var(--text-primary);text-wrap:pretty">Terma &amp; <span style="font-family:var(--font-display-italic);font-style:italic;font-weight:600;color:var(--accent-green)">Syarat</span></h1>
+    <p style="font-size:14px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-secondary)">Bina 24 Jam · Servis Pembinaan Website</p>
+    <p style="font-size:clamp(16px,4.2vw,18px);line-height:1.6;color:var(--text-body);max-width:62ch;text-wrap:pretty">Ini peraturan asas bila anda guna servis Bina 24 Jam. Kami tulis dalam bahasa mudah supaya senang faham. Bila anda buat order atau bayar deposit, <strong style="font-weight:600;color:var(--text-primary)">anda setuju dengan terma di bawah.</strong></p>
+    <p style="font-size:15px;line-height:1.5;color:var(--text-body);display:flex;align-items:center;gap:10px"><span style="font-weight:600;color:var(--text-primary);background:linear-gradient(transparent 55%,var(--accent-lime) 55%);padding:0 2px">Tak ada masa?</span><span>Baca ayat tebal sahaja untuk ringkasan pantas.</span></p>
+    <p style="font-size:14px;color:var(--text-secondary)">Kemaskini terakhir: September 2026</p>
+  </section>
+
+  <section style="max-width:var(--content-max-width);margin:0 auto;padding:clamp(20px,4vw,32px) 20px 0">
+    <div style="background:var(--color-sage-tint, #dbead2);border-radius:var(--radius-container);padding:clamp(18px,3vw,24px);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px 24px">
+      <div style="display:flex;gap:12px;align-items:center"><span style="width:26px;height:26px;flex-shrink:0;border-radius:var(--radius-comfortable);background:var(--accent-lime);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--surface-dark)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15px;font-weight:600;color:var(--text-primary)">Deposit 30% untuk mula</span></div>
+      <div style="display:flex;gap:12px;align-items:center"><span style="width:26px;height:26px;flex-shrink:0;border-radius:var(--radius-comfortable);background:var(--accent-lime);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--surface-dark)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15px;font-weight:600;color:var(--text-primary)">Baki 70% selepas anda sahkan</span></div>
+      <div style="display:flex;gap:12px;align-items:center"><span style="width:26px;height:26px;flex-shrink:0;border-radius:var(--radius-comfortable);background:var(--accent-lime);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--surface-dark)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15px;font-weight:600;color:var(--text-primary)">Website milik anda sepenuhnya</span></div>
+    </div>
+  </section>
+
+  <section style="max-width:var(--content-max-width);margin:0 auto;padding:clamp(20px,4vw,40px) 20px clamp(32px,6vw,64px)">
+    <div class="rc-terms-grid" style="display:grid;grid-template-columns:240px minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:start">
+      <nav class="rc-terms-toc" aria-label="Kandungan" style="position:sticky;top:96px;display:flex;flex-direction:column;gap:2px;padding-top:28px">
+        <span style="padding:0 10px 8px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-secondary)">Kandungan</span>
+          <a href="#s1" style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:8px 10px;border-radius:var(--radius-comfortable);color:var(--text-body);font-size:14px;line-height:1.35;text-decoration:none" style-hover="background:var(--hover-tint);color:var(--text-primary)"><span style="font-weight:600;color:var(--accent-green)">01</span><span>Apa yang termasuk</span></a>
+          <a href="#s2" style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:8px 10px;border-radius:var(--radius-comfortable);color:var(--text-body);font-size:14px;line-height:1.35;text-decoration:none" style-hover="background:var(--hover-tint);color:var(--text-primary)"><span style="font-weight:600;color:var(--accent-green)">02</span><span>Apa yang kami perlukan dari anda</span></a>
+          <a href="#s3" style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:8px 10px;border-radius:var(--radius-comfortable);color:var(--text-body);font-size:14px;line-height:1.35;text-decoration:none" style-hover="background:var(--hover-tint);color:var(--text-primary)"><span style="font-weight:600;color:var(--accent-green)">03</span><span>Minta perubahan</span></a>
+          <a href="#s4" style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:8px 10px;border-radius:var(--radius-comfortable);color:var(--text-body);font-size:14px;line-height:1.35;text-decoration:none" style-hover="background:var(--hover-tint);color:var(--text-primary)"><span style="font-weight:600;color:var(--accent-green)">04</span><span>Bila projek dikira siap</span></a>
+          <a href="#s5" style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:8px 10px;border-radius:var(--radius-comfortable);color:var(--text-body);font-size:14px;line-height:1.35;text-decoration:none" style-hover="background:var(--hover-tint);color:var(--text-primary)"><span style="font-weight:600;color:var(--accent-green)">05</span><span>Bayaran</span></a>
+          <a href="#s6" style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:8px 10px;border-radius:var(--radius-comfortable);color:var(--text-body);font-size:14px;line-height:1.35;text-decoration:none" style-hover="background:var(--hover-tint);color:var(--text-primary)"><span style="font-weight:600;color:var(--accent-green)">06</span><span>Domain &amp; hosting</span></a>
+          <a href="#s7" style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:8px 10px;border-radius:var(--radius-comfortable);color:var(--text-body);font-size:14px;line-height:1.35;text-decoration:none" style-hover="background:var(--hover-tint);color:var(--text-primary)"><span style="font-weight:600;color:var(--accent-green)">07</span><span>Siapa pemilik website</span></a>
+          <a href="#s8" style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:8px 10px;border-radius:var(--radius-comfortable);color:var(--text-body);font-size:14px;line-height:1.35;text-decoration:none" style-hover="background:var(--hover-tint);color:var(--text-primary)"><span style="font-weight:600;color:var(--accent-green)">08</span><span>Selepas website siap</span></a>
+          <a href="#s9" style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:8px 10px;border-radius:var(--radius-comfortable);color:var(--text-body);font-size:14px;line-height:1.35;text-decoration:none" style-hover="background:var(--hover-tint);color:var(--text-primary)"><span style="font-weight:600;color:var(--accent-green)">09</span><span>Cara kita berhubung</span></a>
+      </nav>
+      <div style="max-width:760px;min-width:0">
+        <section id="s1" style="scroll-margin-top:96px;padding:clamp(24px,4vw,36px) 0;border-top:1px solid var(--border-subtle);display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;align-items:baseline;gap:14px">
+            <span style="font-family:var(--font-display-italic);font-style:italic;font-size:clamp(34px,6vw,44px);line-height:1;color:var(--accent-green);font-weight:600">01</span>
+            <h2 style="margin:0;font-size:clamp(20px,4.6vw,26px);line-height:1.2;letter-spacing:-0.5px;font-weight:600;color:var(--text-primary)">Apa yang termasuk</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">1.1</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Kami design dan bina website untuk anda</strong> ikut pakej yang anda pilih: Launch, Business, Signature atau Enterprise.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">1.2</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Apa yang termasuk ikut page Pakej.</strong> Bilangan page, fungsi dan pindaan adalah seperti yang tertulis pada hari anda order.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">1.3</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Setiap website siap dengan asas yang penting:</strong> cantik di telefon, SEO asas, butang WhatsApp, dan disemak oleh manusia sebelum diserahkan.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">1.4</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Nak tambah lebih? Kami beri harga dulu.</strong> Contohnya page tambahan, kedai online, sistem booking atau gambar produk. Anda setuju harga dulu, baru kami buat.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">1.5</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Enterprise diberi harga ikut projek.</strong> Harga di page Pakej hanyalah harga permulaan.</p></div>
+          </div>
+        </section>
+        <section id="s2" style="scroll-margin-top:96px;padding:clamp(24px,4vw,36px) 0;border-top:1px solid var(--border-subtle);display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;align-items:baseline;gap:14px">
+            <span style="font-family:var(--font-display-italic);font-style:italic;font-size:clamp(34px,6vw,44px);line-height:1;color:var(--accent-green);font-weight:600">02</span>
+            <h2 style="margin:0;font-size:clamp(20px,4.6vw,26px);line-height:1.2;letter-spacing:-0.5px;font-weight:600;color:var(--text-primary)">Apa yang kami perlukan dari anda</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">2.1</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Anda cuma perlu beri 3 perkara:</strong> nama bisnes, apa yang bisnes anda buat, dan cara pelanggan hubungi anda. Logo, gambar dan review adalah pilihan.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">2.2</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary);background:linear-gradient(transparent 55%,var(--accent-lime) 55%);padding:0 2px">Draf siap dalam 24 jam.</strong> Masa mula dikira selepas deposit diterima dan maklumat asas lengkap. Anda akan dapat link untuk tengok website anda. (Enterprise ikut timeline dalam sebut harga.)</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">2.3</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Kami tulis ayat untuk website anda.</strong> Anda cuma pastikan maklumat itu betul, dan anda memang ada hak guna gambar serta logo yang dihantar.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">2.4</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Lambat balas, lambat siap.</strong> Kalau maklumat atau maklum balas lewat, tarikh siap akan diundur sewajarnya.</p></div>
+          </div>
+        </section>
+        <section id="s3" style="scroll-margin-top:96px;padding:clamp(24px,4vw,36px) 0;border-top:1px solid var(--border-subtle);display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;align-items:baseline;gap:14px">
+            <span style="font-family:var(--font-display-italic);font-style:italic;font-size:clamp(34px,6vw,44px);line-height:1;color:var(--accent-green);font-weight:600">03</span>
+            <h2 style="margin:0;font-size:clamp(20px,4.6vw,26px);line-height:1.2;letter-spacing:-0.5px;font-weight:600;color:var(--text-primary)">Minta perubahan</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">3.1</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Setiap pakej termasuk pindaan percuma:</strong> Launch 3 kali, Business 5 kali, Signature tanpa had selama 30 hari.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">3.2</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Satu pusingan bermaksud satu senarai perubahan.</strong> Hantar semua perubahan sekali gus, contohnya teks, gambar, warna atau susunan section.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">3.3</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Tukar konsep selepas draf disahkan dikira kerja baru.</strong> Ini termasuk tukar struktur atau tambah page, dan akan diberi harga berasingan.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">3.4</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Lebih dari kuota? Kami beritahu harga dulu.</strong> Pindaan tambahan dicaj ikut saiz perubahan, dan anda setuju dulu sebelum kami buat.</p></div>
+          </div>
+        </section>
+        <section id="s4" style="scroll-margin-top:96px;padding:clamp(24px,4vw,36px) 0;border-top:1px solid var(--border-subtle);display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;align-items:baseline;gap:14px">
+            <span style="font-family:var(--font-display-italic);font-style:italic;font-size:clamp(34px,6vw,44px);line-height:1;color:var(--accent-green);font-weight:600">04</span>
+            <h2 style="margin:0;font-size:clamp(20px,4.6vw,26px);line-height:1.2;letter-spacing:-0.5px;font-weight:600;color:var(--text-primary)">Bila projek dikira siap</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">4.1</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Projek siap bila anda sahkan melalui WhatsApp.</strong> Kalau tiada maklum balas dalam 14 hari selepas link dihantar, projek juga dikira siap.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">4.2</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Website dipindah ke domain anda selepas baki dibayar.</strong></p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">4.3</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Perubahan selepas projek siap akan dicaj,</strong> kecuali anda melanggan pelan penyelenggaraan.</p></div>
+          </div>
+        </section>
+        <section id="s5" style="scroll-margin-top:96px;padding:clamp(24px,4vw,36px) 0;border-top:1px solid var(--border-subtle);display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;align-items:baseline;gap:14px">
+            <span style="font-family:var(--font-display-italic);font-style:italic;font-size:clamp(34px,6vw,44px);line-height:1;color:var(--accent-green);font-weight:600">05</span>
+            <h2 style="margin:0;font-size:clamp(20px,4.6vw,26px);line-height:1.2;letter-spacing:-0.5px;font-weight:600;color:var(--text-primary)">Bayaran</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">5.1</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Bayar deposit 30% untuk mula.</strong> Kami mula kerja sebaik deposit diterima.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">5.2</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary);background:linear-gradient(transparent 55%,var(--accent-lime) 55%);padding:0 2px">Baki 70% dibayar hanya selepas anda puas hati.</strong> Anda semak dan sahkan website dulu, baru bayar.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">5.3</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary);background:linear-gradient(transparent 55%,var(--accent-lime) 55%);padding:0 2px">Draf tak siap dalam 24 jam? Anda tak perlu bayar baki.</strong> Ini jaminan kami untuk draf di klausa 2.2.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">5.4</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary);background:linear-gradient(transparent 55%,var(--accent-lime) 55%);padding:0 2px">Deposit tidak dipulangkan selepas kerja bermula.</strong> Kalau anda tak mahu teruskan, website tidak akan dipindah ke domain anda.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">5.5</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Bayar dengan FPX, DuitNow QR, kad atau e-wallet.</strong> Harga promo hanya sah dalam tempoh dan slot yang dinyatakan.</p></div>
+          </div>
+        </section>
+        <section id="s6" style="scroll-margin-top:96px;padding:clamp(24px,4vw,36px) 0;border-top:1px solid var(--border-subtle);display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;align-items:baseline;gap:14px">
+            <span style="font-family:var(--font-display-italic);font-style:italic;font-size:clamp(34px,6vw,44px);line-height:1;color:var(--accent-green);font-weight:600">06</span>
+            <h2 style="margin:0;font-size:clamp(20px,4.6vw,26px);line-height:1.2;letter-spacing:-0.5px;font-weight:600;color:var(--text-primary)">Domain &amp; hosting</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">6.1</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Domain dan hosting percuma untuk tahun pertama</strong> bagi pakej Launch, Business dan Signature.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">6.2</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Mulai tahun kedua, anda bayar harga kos sahaja.</strong> Tiada caj tambahan dari kami. Kami akan ingatkan anda sebelum tarikh pembaharuan.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">6.3</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Domain didaftarkan atas nama anda.</strong> Dah ada domain sendiri? Kami boleh guna yang itu.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">6.4</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Enterprise:</strong> domain, hosting, server dan database dicaj ikut harga sebenar.</p></div>
+          </div>
+        </section>
+        <section id="s7" style="scroll-margin-top:96px;padding:clamp(24px,4vw,36px) 0;border-top:1px solid var(--border-subtle);display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;align-items:baseline;gap:14px">
+            <span style="font-family:var(--font-display-italic);font-style:italic;font-size:clamp(34px,6vw,44px);line-height:1;color:var(--accent-green);font-weight:600">07</span>
+            <h2 style="margin:0;font-size:clamp(20px,4.6vw,26px);line-height:1.2;letter-spacing:-0.5px;font-weight:600;color:var(--text-primary)">Siapa pemilik website</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">7.1</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary);background:linear-gradient(transparent 55%,var(--accent-lime) 55%);padding:0 2px">Selepas bayaran penuh, website ini 100% milik anda.</strong> Termasuk domain dan semua content.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">7.2</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Anda tidak terikat dengan kami.</strong> Minta semua fail dan akses bila-bila masa, kami akan serahkan.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">7.3</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Kami mungkin tunjuk website anda dalam portfolio kami.</strong> Tak mahu? Beritahu kami secara bertulis.</p></div>
+          </div>
+        </section>
+        <section id="s8" style="scroll-margin-top:96px;padding:clamp(24px,4vw,36px) 0;border-top:1px solid var(--border-subtle);display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;align-items:baseline;gap:14px">
+            <span style="font-family:var(--font-display-italic);font-style:italic;font-size:clamp(34px,6vw,44px);line-height:1;color:var(--accent-green);font-weight:600">08</span>
+            <h2 style="margin:0;font-size:clamp(20px,4.6vw,26px);line-height:1.2;letter-spacing:-0.5px;font-weight:600;color:var(--text-primary)">Selepas website siap</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">8.1</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Pelan penyelenggaraan adalah pilihan.</strong> Website anda tetap berfungsi penuh tanpa pelan Care atau Growth.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">8.2</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Bayar bulanan, batal bila-bila masa.</strong> Cuma batal sebelum bil bulan seterusnya.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">8.3</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Enterprise wajib ada pelan penyelenggaraan,</strong> dari RM199 sebulan.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">8.4</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Tanpa pelan, anda dapat support percuma 7 hari</strong> selepas projek siap. Selepas itu, kerja tambahan dicaj.</p></div>
+          </div>
+        </section>
+        <section id="s9" style="scroll-margin-top:96px;padding:clamp(24px,4vw,36px) 0;border-top:1px solid var(--border-subtle);display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;align-items:baseline;gap:14px">
+            <span style="font-family:var(--font-display-italic);font-style:italic;font-size:clamp(34px,6vw,44px);line-height:1;color:var(--accent-green);font-weight:600">09</span>
+            <h2 style="margin:0;font-size:clamp(20px,4.6vw,26px);line-height:1.2;letter-spacing:-0.5px;font-weight:600;color:var(--text-primary)">Cara kita berhubung</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">9.1</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Semua urusan dibuat online.</strong> WhatsApp 011-7511 2280 atau email binawebsite24@gmail.com.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">9.2</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Kami balas dalam 24 jam</strong> pada hari bekerja.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">9.3</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Semua persetujuan mesti bertulis.</strong> Kelulusan dan permintaan perubahan dibuat melalui WhatsApp atau email.</p></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px"><span style="font-size:14px;font-weight:600;color:var(--accent-green);padding-top:2px">9.4</span><p style="font-size:15.5px;line-height:1.65;color:var(--text-body);text-wrap:pretty"><strong style="font-weight:600;color:var(--text-primary)">Kami boleh hentikan projek jika klien kasar atau mengugut.</strong> Tiada bayaran balik dalam kes ini.</p></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:var(--content-max-width);margin:0 auto;padding:0 20px clamp(40px,6vw,72px)">
+    <div style="background:var(--surface-dark);border-radius:var(--radius-container);padding:clamp(24px,5vw,48px);display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+      <h2 style="margin:0;font-size:clamp(24px,5.4vw,36px);line-height:1.08;letter-spacing:-1px;font-weight:600;color:var(--text-on-dark);max-width:26ch">Ada soalan pasal terma ini?</h2>
+      <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.72);max-width:52ch">Mesej kami di WhatsApp sebelum order. Kami terangkan apa-apa yang tak jelas, tanpa komitmen.</p>
+      <a href="{{ waHref }}" style="text-decoration:none;display:grid;width:100%;max-width:300px">
+        <span style="display:flex;align-items:center;justify-content:center;border-radius:var(--radius-pill);font-weight:600;font-size:15.5px;min-height:52px;padding:14px 20px;background:var(--accent-lime);color:var(--surface-dark)" style-hover="opacity:0.85">WhatsApp kami</span>
+      </a>
+    </div>
+  </section>
+
+  <footer style="margin-top:clamp(56px,8vw,112px);background:linear-gradient(180deg,#2c4a33 0%,#1a2e1f 55%,#0e1a12 100%)">
+    <div class="rc-footer-grid" style="max-width:1040px;margin:0 auto;padding:clamp(36px,5vw,56px) 24px clamp(28px,3vw,36px);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:start">
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:340px">
+        <div style="display:flex;align-items:center;gap:8px">
+          <img src="assets/bina-logo-footer-v2.png" alt="Bina 24 Jam" style="height:56px;width:auto;display:block">
+        </div>
+        <p style="font-size:15px;line-height:1.55;color:rgba(255,255,255,0.7);max-width:30ch">Laju, kemas, siap dalam 24 jam. Website untuk bisnes Malaysia, dari RM299.</p>
+        <a href="{{ waHref }}" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent-green);color:var(--color-white);font-size:15px;font-weight:600;padding:13px 22px;border-radius:var(--radius-pill);text-decoration:none;width:fit-content" style-hover="opacity:0.85;color:var(--surface-dark)">WhatsApp kami</a>
+        <span style="font-size:14px;color:rgba(255,255,255,0.55)">Selangor, Malaysia</span>
+        <div style="display:flex;gap:10px;margin-top:4px">
+          <a href="https://www.instagram.com/bina24jam?stkn=YzJpcmhldndtdGVu&amp;utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7)" style-hover="border-color:var(--accent-lime);color:var(--accent-lime)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"></circle></svg>
+          </a>
+          <a href="https://www.facebook.com/share/19jDjc7cBN/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7)" style-hover="border-color:var(--accent-lime);color:var(--accent-lime)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 8.5h2.5V5h-2.7C11.5 5 10 6.6 10 9v2.2H8V15h2v6h3v-6h2.3l.4-3.8H13V9c0-.4.2-.5.6-.5H14z"></path></svg>
+          </a>
+          <a href="https://www.threads.com/@bina24jam?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener" aria-label="Threads" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7)" style-hover="border-color:var(--accent-lime);color:var(--accent-lime)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.4 8.4C18.4 5.6 15.9 4.2 12.3 4.2 7.3 4.2 4.4 7.3 4.4 12s2.9 7.8 7.9 7.8c4.3 0 7.2-1.9 7.2-4.7 0-1.9-1.5-3.1-4.7-3.1"></path><path d="M9 9.6c.6-1.4 1.6-2.2 3-2.2 1.9 0 2.8 1.4 2.8 3.6v3.2"></path><circle cx="12.2" cy="14.1" r="2.6"></circle></svg>
+          </a>
+          <a href="{{ waHref }}" aria-label="WhatsApp" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7)" style-hover="border-color:var(--accent-lime);color:var(--accent-lime)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M3.6 20.4l1.3-4.6A8.9 8.9 0 1 1 8.2 19.1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path fill="currentColor" d="M9.1 7.6c-.2-.4-.3-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.9 4.5 4 2.2.9 2.7.7 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.6-1.5-1.9-.2-.3 0-.4.1-.5l.4-.4.3-.5c.1-.2 0-.3 0-.4l-.8-2z"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent-lime);padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.14)">Syarikat</span>
+        <a href="about.dc.html" style="font-size:15px;color:rgba(255,255,255,0.74);padding:2px 0" style-hover="color:var(--color-white)">Tentang Kami</a>
+        <a href="portfolio.dc.html" style="font-size:15px;color:rgba(255,255,255,0.74);padding:2px 0" style-hover="color:var(--color-white)">Portfolio</a>
+        <a href="how-it-works.dc.html" style="font-size:15px;color:rgba(255,255,255,0.74);padding:2px 0" style-hover="color:var(--color-white)">Cara Kerja</a>
+        <a href="faq.dc.html" style="font-size:15px;color:rgba(255,255,255,0.74);padding:2px 0" style-hover="color:var(--color-white)">FAQ</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent-lime);padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.14)">Mula di sini</span>
+        <a href="contact.dc.html" style="font-size:15px;color:rgba(255,255,255,0.74);padding:2px 0" style-hover="color:var(--color-white)">Hubungi kami</a>
+        <a href="packages.dc.html" style="font-size:15px;color:rgba(255,255,255,0.74);padding:2px 0" style-hover="color:var(--color-white)">Pilih pakej</a>
+        <a href="Bina 24 Jam.dc.html" style="font-size:15px;color:rgba(255,255,255,0.74);padding:2px 0" style-hover="color:var(--color-white)">Laman Utama</a>
+        <p style="font-size:14px;line-height:1.5;color:rgba(255,255,255,0.55);margin-top:4px">Deposit 30% untuk mula. Baki hanya selepas anda puas hati.</p>
+      </div>
+    </div>
+    <div style="max-width:1040px;margin:0 auto;padding:18px 24px calc(20px + 84px);border-top:1px solid rgba(255,255,255,0.14);display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between">
+      <span style="font-size:13px;color:rgba(255,255,255,0.5)">© 2026 Bina 24 Jam. Hak cipta terpelihara.</span>
+      <div style="display:flex;gap:18px">
+        <a href="#" style="font-size:13px;color:rgba(255,255,255,0.5)" style-hover="color:var(--color-white)">Dasar Privasi</a>
+        <a href="terms.dc.html" style="font-size:13px;color:rgba(255,255,255,0.5)" style-hover="color:var(--color-white)">Terma</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;601175112280&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;whatsappMessage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Hi Bina 24 Jam! Saya nak tanya pasal website untuk bisnes saya.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.onResize = this.onResize.bind(this);
+    this.state = { mobileNavOpen: false, isMobile: (typeof window !== 'undefined' && window.innerWidth < 768) };
+  }
+  onResize() {
+    const isMobile = window.innerWidth < 768;
+    if (isMobile !== this.state.isMobile) this.setState({ isMobile, mobileNavOpen: isMobile ? this.state.mobileNavOpen : false });
+  }
+  componentDidMount() {
+    window.addEventListener('resize', this.onResize);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+  }
+  renderVals() {
+    const wa = (this.props.whatsappNumber ?? '601175112280').replace(/[^0-9]/g, '');
+    const msg = encodeURIComponent(this.props.whatsappMessage ?? "Hi Bina 24 Jam! Saya nak tanya pasal website untuk bisnes saya.");
+    return {
+      isMobile: this.state.isMobile,
+      showDesktopNav: !this.state.isMobile,
+      mobileNavOpen: this.state.isMobile && this.state.mobileNavOpen,
+      toggleMobileNav: () => this.setState(s => ({ mobileNavOpen: !s.mobileNavOpen })),
+      closeMobileNav: () => this.setState({ mobileNavOpen: false }),
+      waHref: 'https://wa.me/' + wa + '?text=' + msg,
+      ctaProps: { style: { width: '100%', padding: '15px 22px', fontSize: 17, minHeight: 52 } },
+      barProps: { style: { width: '100%', padding: '12px 14px', fontSize: 15, minHeight: 46 } }
+    };
+  }
+}
+
+</script>
+</body>
+</html>
