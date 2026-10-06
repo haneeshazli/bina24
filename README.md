@@ -7,19 +7,32 @@ Production: <https://bina24jam.vercel.app>
 
 ## Deploying
 
-**Pushing to `main` does not update the Vercel site.** The Vercel project is not
-Git-connected to this repo: there are no webhooks and no commit statuses, so a
-push leaves production serving whatever was deployed last. After pushing, deploy
-from Vercel manually (or connect the repo so pushes ship on their own).
+**Pushing to `main` does not update the Vercel site.** There are no commit
+statuses on pushes and past commits on `main` have no deployment at all, so a
+push leaves production serving whatever was deployed last. Production is
+deployed on demand.
+
+Vercel *can* read this repo, so a deploy does not need the files uploaded — it
+pulls the commit itself:
+
+```bash
+vercel --scope goldkey1 deploy --prod          # from a checkout
+```
+
+or, against the API, POST a deployment for project `bina24` with
+`gitSource: {type: github, org: haneeshazli, repo: bina24, ref: main}` and
+`target: production`. Either way the build takes seconds (nothing to compile)
+and the deployment picks up the `bina24jam.vercel.app` alias.
 
 Check which build is actually live:
 
 ```bash
-curl -s -o /dev/null -w '%{http_code}\n' https://bina24jam.vercel.app/support.js
+curl -s -o /dev/null -w '%{http_code}\n' \
+  https://bina24jam.vercel.app/_ds/vela-ranks-design-system-378a7f/styles.css
 ```
 
-`200` means the current source-built site is live; `404` means production is
-still on an older bundle.
+`200` means the current homepage is live; `404` means production is still on a
+build from before the Vela Ranks redesign.
 
 `main` also auto-builds to GitHub Pages at
 <https://haneeshazli.github.io/bina24/>. That is useful for checking a build on a
