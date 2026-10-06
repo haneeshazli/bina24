@@ -1,0 +1,7 @@
+/* Type families. Creato Display is licensed and not bundled; Archivo is the
+   free stand-in the live site already loads. */
+:root{
+--vr-font-display:"Playfair Display",Georgia,"Times New Roman",serif;
+--vr-font-sans:"Creato Display",Archivo,"Helvetica Neue",system-ui,sans-serif;
+--vr-font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+}

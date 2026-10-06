@@ -1,0 +1,5 @@
+/* Spacing (4px base) and radius. */
+:root{
+--vr-space-1:4px;--vr-space-2:8px;--vr-space-3:12px;--vr-space-4:16px;--vr-space-5:20px;--vr-space-6:24px;--vr-space-8:32px;--vr-space-10:40px;--vr-space-12:48px;--vr-space-16:64px;--vr-space-20:80px;--vr-space-24:96px;
+--vr-radius-xs:8px;--vr-radius-sm:10px;--vr-radius-md:14px;--vr-radius-lg:15px;--vr-radius-xl:20px;--vr-radius-2xl:26px;--vr-radius-pill:100px;--vr-radius-circle:50%;
+}

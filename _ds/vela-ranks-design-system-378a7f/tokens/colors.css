@@ -1,0 +1,22 @@
+/* Vela Ranks colour tokens — verbatim from @velaranks/ui src/styles/tokens.css.
+   Measured from velaranks.com at 375x812. Light is default; dark is opt-in via
+   [data-vr-theme="dark"] on the VelaProvider root (or :root). */
+:root,[data-vr-theme="light"]{
+/* surfaces */
+--vr-surface:#ffffff;--vr-surface-raised:#ffffff;--vr-surface-sunken:#ecedef;--vr-surface-ink:#000000;--vr-surface-forest:#152d1d;--vr-surface-mint:#f4f8f5;
+/* text */
+--vr-ink:#09182b;--vr-body:#444e5a;--vr-muted:#828890;--vr-on-dark:#ffffff;--vr-on-dark-muted:#d6e8db;
+/* lines */
+--vr-border:#ccd6df;--vr-border-strong:#a9aeb3;
+/* brand */
+--vr-brand:#48a860;--vr-brand-bright:#5cd87b;--vr-brand-deep:#3bb159;--vr-brand-dark:#0e341a;--vr-brand-tint:#d4ffdc;
+/* accents */
+--vr-star:#fecf0f;--vr-amber:#f7a923;--vr-amber-deep:#8a611b;--vr-amber-tint:#fdf5e6;--vr-azure:#0e6ee0;--vr-azure-soft:#9dc4f3;--vr-azure-tint:#b2d6ff;--vr-violet:#764aff;--vr-violet-soft:#dfd5ff;--vr-violet-tint:#d4c6ff;
+}
+[data-vr-theme="dark"]{
+--vr-surface:#000000;--vr-surface-raised:#0b0f0c;--vr-surface-sunken:#0a0a0a;--vr-surface-ink:#000000;--vr-surface-forest:#152d1d;--vr-surface-mint:#0f1a12;
+--vr-ink:#ffffff;--vr-body:#ccd6df;--vr-muted:#a9aeb3;--vr-on-dark:#ffffff;--vr-on-dark-muted:#d6e8db;
+--vr-border:#2a3340;--vr-border-strong:#3d4a58;
+--vr-brand:#5cd87b;--vr-brand-bright:#5cd87b;--vr-brand-deep:#3bb159;--vr-brand-dark:#0e341a;--vr-brand-tint:#16301d;
+--vr-star:#fecf0f;--vr-amber:#f7a923;--vr-amber-deep:#8a611b;--vr-amber-tint:#2a2113;--vr-azure:#4f9bff;--vr-azure-soft:#9dc4f3;--vr-azure-tint:#12243a;--vr-violet:#9d7bff;--vr-violet-soft:#dfd5ff;--vr-violet-tint:#221a3a;
+}

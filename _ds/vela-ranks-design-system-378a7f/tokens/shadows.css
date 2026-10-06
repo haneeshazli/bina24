@@ -1,0 +1,10 @@
+/* Shadows and shared gradients. */
+:root{
+--vr-shadow-glow:0 11px 24px 0 rgba(99,240,128,0.42);
+--vr-shadow-glow-soft:0 20px 50px -15px rgba(94,240,143,0.4);
+--vr-shadow-button:0 5px 3px 0 rgba(0,0,0,0.5);
+--vr-shadow-card:0 18px 40px -24px rgba(9,24,43,0.25);
+--vr-shadow-nav:0 -8px 30px rgba(0,0,0,0.45);
+--vr-gradient-cta:linear-gradient(135deg,var(--vr-brand-deep) 25%,var(--vr-brand-dark) 100%);
+--vr-cta-border:1px solid rgba(94,240,143,0.3); /* @kind other */
+}

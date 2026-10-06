@@ -28,7 +28,17 @@ real host, but it is not the branded domain and its extensionless links 404 ther
 
 ## Updating the design
 
-The site is authored in Claude Design and downloaded as a *project source*
+Pages are authored in Claude Design and land here as `design-source/pages/*.dc.html`.
+`tools/compose.sh` turns those into the shippable `*.html`: it adds the SEO
+partials and the crawlable `<noscript>` fallback, points the dc-runtime at
+vendored React, and rewrites cross-page links to clean URLs. Run it directly
+after editing an SEO partial.
+
+How a page source is refreshed depends on which Claude Design project it comes
+from, because the homepage and the other seven pages are now separate projects
+on different design systems.
+
+**The seven inner pages** (RealCraft design system) come from a *project source*
 export: `.dc.html` pages plus the dc-runtime, design system and assets. That
 export is not directly deployable — it carries no SEO metadata, pulls React from
 a CDN, and ships ~150MB of working material that must not go live.
@@ -37,9 +47,27 @@ a CDN, and ships ~150MB of working material that must not go live.
 tools/build.sh ~/path/to/extracted-export
 ```
 
-That composes each page from the export and the SEO partials, rewrites
-cross-page links to clean URLs, vendors React, and refreshes
-`design-source/pages/`. Re-running it with an unchanged export produces no diff.
+That copies in the runtime, design system and referenced assets, refreshes
+`design-source/pages/`, then composes. It leaves the homepage alone.
+
+**The homepage** (Vela Ranks design system) is downloaded as a *single-file
+bundle* instead — one HTML file carrying the page template plus every asset
+inlined as base64.
+
+```bash
+tools/unbundle.py ~/Downloads/Bina\ 24\ Jam.html index
+tools/compose.sh
+```
+
+`unbundle.py` unpacks it back into project-source shape: it writes
+`design-source/pages/index.dc.html`, splits the inlined CSS back into the
+`_ds/vela-ranks-design-system-378a7f/` stylesheets, self-hosts the webfonts as
+woff2, and recognises assets the repo already has by content hash so they keep
+their paths. Image-slot artwork that is already in `image-slots.state.json`
+loses its inlined `src` — the sidecar is the store. Anything it cannot place is
+named in its report rather than passed over silently.
+
+Re-running either script with unchanged input produces no diff.
 
 Then preview before pushing:
 
@@ -56,9 +84,12 @@ behave as they do in production. Two 404s are expected locally:
 | Path | What it is |
 | --- | --- |
 | `*.html` | The eight built pages. Generated — edit the design, not these. |
-| `design-source/pages/` | The `.dc.html` exports the pages were built from. |
+| `design-source/pages/` | The `.dc.html` sources the pages were built from. |
 | `design-source/seo/` | Per-page `<head>` and `<noscript>` partials. Hand-maintained. |
-| `_ds/`, `support.js`, `i18n*.js`, `image-slot.js`, `rc-motion.js` | Design system and dc-runtime, copied from the export. |
+| `_ds/copy-of-realcraft-…/` | Design system for the seven inner pages. |
+| `_ds/vela-ranks-…/` | Design system for the homepage, reconstructed by `unbundle.py`. |
+| `assets/brands/` | Platform logos in the homepage's "dibina, dijejak dan dibayar" row. |
+| `support.js`, `i18n*.js`, `image-slot.js`, `rc-motion.js` | dc-runtime, copied from the export. |
 | `widgets/` | Embedded as iframes by the homepage capability cards. |
 | `image-slots.state.json` | Image-slot artwork. Renamed off its dotfile name so static hosts serve it. |
 | `vendor/` | React + ReactDOM UMD, mapped via `window.__resources`. |
