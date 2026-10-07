@@ -1,0 +1,67 @@
+/* Bina 24 Jam — legacy token names remapped onto Vela Ranks values.
+   Loaded after the Vela token sheets so existing var() usage picks up Vela. */
+:root{
+  --color-white:#ffffff;
+  --color-off-white:#ffffff;
+  --color-charcoal:#09182b;
+  --color-charcoal-83:rgba(9,24,43,0.86);
+  --color-charcoal-82:rgba(9,24,43,0.78);
+  --color-charcoal-40:rgba(9,24,43,0.40);
+  --color-charcoal-4:rgba(9,24,43,0.04);
+  --color-charcoal-3:rgba(9,24,43,0.03);
+  --color-muted-gray:#5c6672;
+  --color-border-light:#ccd6df;
+  --color-ring-blue:#0e6ee0;
+  --color-dark-surface:#152d1d;
+  --color-dark-surface-2:#0e341a;
+  --color-lime:#5cd87b;
+  --color-lime-soft:#d4ffdc;
+  --color-green:#48a860;
+  --color-green-tint:#f4f8f5;
+
+  --bg-page:#ffffff;
+  --bg-surface:#ffffff;
+  --surface-card:#ffffff;
+  --surface-card-tint:#f4f8f5;
+  --surface-dark:#152d1d;
+  --text-primary:#09182b;
+  --text-secondary:#5c6672;
+  --text-strong-secondary:rgba(9,24,43,0.86);
+  --text-body:#444e5a;
+  --text-on-dark:#ffffff;
+  --text-accent:#2f7a46;
+  --accent-green:#2f7a46;
+  --accent-lime:#5cd87b;
+  --accent-lime-soft:#d4ffdc;
+  --border-subtle:#ccd6df;
+  --border-interactive:#a9aeb3;
+  --hover-tint:#f4f8f5;
+  --overlay-faint:rgba(9,24,43,0.03);
+  --focus-ring:rgba(92,216,123,0.6);
+  --placeholder-text:#828890;
+
+  --content-max-width:1200px;
+  --color-sage-tint:#f4f8f5;
+
+  --font-sans:"Creato Display",Archivo,"Helvetica Neue",system-ui,sans-serif;
+  --font-display-italic:"Playfair Display",Georgia,serif;
+
+  --radius-micro:6px;
+  --radius-xs:6px;
+  --radius-standard:8px;
+  --radius-comfortable:10px;
+  --radius-card:20px;
+  --radius-container:26px;
+  --radius-pill:100px;
+}
+
+/* Playfair Display for the claim-making headlines, Archivo everywhere else. */
+h1,h2{font-family:"Playfair Display",Georgia,serif !important;font-weight:700 !important;letter-spacing:-0.015em !important}
+h1 em,h2 em{font-style:italic}
+
+/* Chips keep Vela's dark-tone ink when they land on any dark ground. */
+.vr-chip{white-space:nowrap}
+[style*="surface-dark"] .vr-chip,[style*="grad-dark"] .vr-chip{color:var(--vr-on-dark-muted);border-color:rgba(255,255,255,0.18)}
+
+/* Archivo sets slightly wider than the old sans — keep short CTA labels on one line. */
+a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}

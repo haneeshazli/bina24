@@ -8,85 +8,12 @@
 <body>
 <x-dc>
 <helmet>
-
-
-
-
-
-
-
 <link rel="stylesheet" href="_ds/vela-ranks-design-system-378a7f/styles.css">
-<style>/* Bina 24 Jam — legacy token names remapped onto Vela Ranks values.
-   Loaded after the Vela token sheets so existing var() usage picks up Vela. */
-:root{
-  --color-white:#ffffff;
-  --color-off-white:#ffffff;
-  --color-charcoal:#09182b;
-  --color-charcoal-83:rgba(9,24,43,0.86);
-  --color-charcoal-82:rgba(9,24,43,0.78);
-  --color-charcoal-40:rgba(9,24,43,0.40);
-  --color-charcoal-4:rgba(9,24,43,0.04);
-  --color-charcoal-3:rgba(9,24,43,0.03);
-  --color-muted-gray:#5c6672;
-  --color-border-light:#ccd6df;
-  --color-ring-blue:#0e6ee0;
-  --color-dark-surface:#152d1d;
-  --color-dark-surface-2:#0e341a;
-  --color-lime:#5cd87b;
-  --color-lime-soft:#d4ffdc;
-  --color-green:#48a860;
-  --color-green-tint:#f4f8f5;
-
-  --bg-page:#ffffff;
-  --bg-surface:#ffffff;
-  --surface-card:#ffffff;
-  --surface-card-tint:#f4f8f5;
-  --surface-dark:#152d1d;
-  --text-primary:#09182b;
-  --text-secondary:#5c6672;
-  --text-strong-secondary:rgba(9,24,43,0.86);
-  --text-body:#444e5a;
-  --text-on-dark:#ffffff;
-  --text-accent:#2f7a46;
-  --accent-green:#2f7a46;
-  --accent-lime:#5cd87b;
-  --accent-lime-soft:#d4ffdc;
-  --border-subtle:#ccd6df;
-  --border-interactive:#a9aeb3;
-  --hover-tint:#f4f8f5;
-  --overlay-faint:rgba(9,24,43,0.03);
-  --focus-ring:rgba(92,216,123,0.6);
-  --placeholder-text:#828890;
-
-  --content-max-width:1200px;
-  --color-sage-tint:#f4f8f5;
-
-  --font-sans:"Creato Display",Archivo,"Helvetica Neue",system-ui,sans-serif;
-  --font-display-italic:"Playfair Display",Georgia,serif;
-
-  --radius-micro:6px;
-  --radius-xs:6px;
-  --radius-standard:8px;
-  --radius-comfortable:10px;
-  --radius-card:20px;
-  --radius-container:26px;
-  --radius-pill:100px;
-}
-
-/* Playfair Display for the claim-making headlines, Archivo everywhere else. */
-h1,h2{font-family:"Playfair Display",Georgia,serif !important;font-weight:700 !important;letter-spacing:-0.015em !important}
-h1 em,h2 em{font-style:italic}
-
-/* Chips keep Vela's dark-tone ink when they land on any dark ground. */
-.vr-chip{white-space:nowrap}
-[style*="surface-dark"] .vr-chip,[style*="grad-dark"] .vr-chip{color:var(--vr-on-dark-muted);border-color:rgba(255,255,255,0.18)}
-
-/* Archivo sets slightly wider than the old sans — keep short CTA labels on one line. */
-a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
-</style>
+<link rel="stylesheet" href="vela-bridge.css">
 <script src="_ds/vela-ranks-design-system-378a7f/_ds_bundle.js"></script>
 <script src="./image-slot.js"></script>
 <script src="./rc-motion.js"></script>
+<script src="./cal-embed.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <style>
   @keyframes rcRise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
@@ -110,7 +37,7 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
   [data-hero]>*:nth-child(6){transition-delay:330ms}
   .rc-animating{will-change:transform,opacity}
   header[data-rc-nav]{transition:transform .3s ease-out}
-  header[data-rc-nav].hidden{transform:translateY(-100%)}
+  header[data-rc-nav].hidden{transform:none}
   img{transition:opacity .4s ease-out}
   img[data-rc-loading]{opacity:0}
   [data-stagger].reveal>[style*="border-radius"]{transition:transform .2s ease-out,opacity .6s cubic-bezier(.22,1,.36,1)}
@@ -152,15 +79,20 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
   p{margin:0;}
   a{color:var(--accent-green);text-decoration:none;}
   a:hover{color:var(--color-charcoal);text-decoration:underline;}
+  header[data-rc-nav]{transition:transform .34s cubic-bezier(.4,0,.2,1),background-color .3s ease,box-shadow .3s ease,border-color .3s ease;border-bottom:1px solid transparent;will-change:transform;}
+  header[data-rc-nav][data-nav-scrolled]{background:rgba(255,255,255,0.95) !important;border-bottom-color:rgba(204,214,223,0.65);box-shadow:0 6px 24px rgba(9,24,43,0.07);}
+  header[data-rc-nav].hidden,header[data-rc-nav][data-nav-hidden]{transform:translateY(-115%);}
+  @media (prefers-reduced-motion:reduce){header[data-rc-nav].hidden,header[data-rc-nav][data-nav-hidden]{transform:none;}}
   summary{list-style:none;}
   summary::-webkit-details-marker{display:none;}
 </style>
 <script src="i18n-en.js"></script>
 <script src="i18n-en-2.js"></script>
 <script src="i18n.js"></script>
+<script src="./rc-nav.js"></script>
 </helmet>
 
-
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#152d1d"></rect><rect x="60" y="60" width="80" height="80" rx="20" fill="#5cd87b"></rect><text x="100" y="115" text-anchor="middle" font-family="sans-serif" font-size="42" font-weight="700" fill="#09182b">RC</text></svg></template>
 
 <div ref="{{ rootRef }}" style="background:var(--bg-page);font-family:var(--font-sans);color:var(--text-primary);overflow-x:clip">
 
@@ -168,7 +100,7 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
     <div style="max-width:var(--content-max-width);margin:0 auto;padding:9px 20px;display:flex;flex-wrap:nowrap;gap:8px 20px;align-items:center;justify-content:space-between;font-size:13px">
       <sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}"><a href="#pricing" style="display:inline-flex;align-items:center;gap:10px;color:rgba(255,255,255,0.88);text-decoration:none;min-width:0" style-hover="color:var(--color-white);text-decoration:none"><span style="flex-shrink:0;border:1px solid rgba(255,255,255,0.28);color:rgba(255,255,255,0.9);font-size:10.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:2px 9px;border-radius:9999px">Promo</span><span>Website siap dari <strong style="color:var(--color-white);font-weight:600">RM299</strong>, live dalam 24 jam</span><span style="color:rgba(255,255,255,0.3)">·</span><span>Slot terhad bulan ini</span><span style="color:rgba(255,255,255,0.6)">→</span></a></sc-if>
       <div style="display:flex;flex-wrap:nowrap;gap:8px 18px;align-items:center;white-space:nowrap">
-        <a href="{{ waHref }}" style="display:inline-flex;align-items:center;gap:7px;color:rgba(255,255,255,0.88);text-decoration:none" style-hover="color:var(--color-white);text-decoration:none"><img src="assets/brands/whatsapp.svg" alt="" width="14" height="14" style="width:14px;height:14px;opacity:0.85">WhatsApp kami</a>
+        <a href="{{ waHref }}" style="display:inline-flex;align-items:center;gap:7px;color:rgba(255,255,255,0.88);text-decoration:none" style-hover="color:var(--color-white);text-decoration:none"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="" width="14" height="14" style="width:14px;height:14px;opacity:0.85">WhatsApp kami</a>
         <sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}"><span style="color:rgba(255,255,255,0.3)">|</span>
         </sc-if>
         
@@ -177,53 +109,54 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
     </div>
   </div>
 
-  <header data-rc-nav="" style="position:sticky;top:0;z-index:50;background:var(--bg-page);border-bottom:1px solid var(--border-subtle)">
-    <div style="max-width:var(--content-max-width);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px">
-      <a href="Bina 24 Jam.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none">
-        <img src="assets/bina-logo-header-v2.png" alt="Bina 24 Jam" style="height:44px;width:auto;display:block">
+  <header data-rc-nav="" style="position:sticky;top:0;z-index:50;background:transparent">
+    <div style="max-width:var(--content-max-width);margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="Bina 24 Jam.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0">
+        <img src="assets/bina-logo-header-v2.png" alt="Bina 24 Jam" style="height:44px;width:auto;display:block;mix-blend-mode:multiply">
       </a>
       <sc-if value="{{ showDesktopNav }}" hint-placeholder-val="{{ true }}">
-        <div style="display:flex;gap:4px;font-size:14px;flex-wrap:wrap;justify-content:flex-end;align-items:center">
-          <a href="about.dc.html" style="padding:8px 10px;color:var(--text-primary)">Tentang Kami</a>
-          <a href="packages.dc.html" style="padding:8px 10px;color:var(--text-primary)">Pakej</a>
-          <a href="portfolio.dc.html" style="padding:8px 10px;color:var(--text-primary)">Portfolio</a>
-          <a href="how-it-works.dc.html" style="padding:8px 10px;color:var(--text-primary)">Cara Kerja</a>
-          <a href="faq.dc.html" style="padding:8px 10px;color:var(--text-primary)">FAQ</a>
-          <a href="terms.dc.html" style="padding:8px 10px;color:var(--text-primary)">Terma</a>
-          <a href="contact.dc.html" style="padding:8px 10px;color:var(--text-primary)">Hubungi</a>
-          <a href="packages.dc.html" style="margin-left:8px;display:inline-flex;align-items:center;gap:8px;background:var(--grad-cta);color:var(--color-white);border-radius:var(--radius-pill);padding:13px 20px;font-size:14px;font-weight:600;min-height:44px;box-sizing:border-box;text-decoration:none;transition:background 200ms ease;min-height:44px;box-sizing:border-box" style-hover="background:var(--grad-cta-hover)">Lihat Pakej</a>
-        </div>
+        <nav style="display:flex;align-items:center;gap:2px;padding:5px;border:1px solid rgba(72,168,96,0.35);border-radius:var(--radius-pill);background:var(--color-white);font-size:14.5px;min-width:0">
+          <a href="Bina 24 Jam.dc.html" style="padding:9px 16px;border-radius:var(--radius-pill);background:#09182b;color:var(--color-white);white-space:nowrap;text-decoration:none" style-hover="color:var(--color-white);text-decoration:none">Laman Utama</a>
+          <a href="about.dc.html" style="padding:9px 14px;border-radius:var(--radius-pill);color:var(--text-primary);white-space:nowrap;text-decoration:none;transition:background 200ms ease" style-hover="background:#f4f8f5;color:var(--text-primary);text-decoration:none">Tentang Kami</a>
+          <a href="packages.dc.html" style="padding:9px 14px;border-radius:var(--radius-pill);color:var(--text-primary);white-space:nowrap;text-decoration:none;transition:background 200ms ease" style-hover="background:#f4f8f5;color:var(--text-primary);text-decoration:none">Pakej</a>
+          <a href="portfolio.dc.html" style="padding:9px 14px;border-radius:var(--radius-pill);color:var(--text-primary);white-space:nowrap;text-decoration:none;transition:background 200ms ease" style-hover="background:#f4f8f5;color:var(--text-primary);text-decoration:none">Portfolio</a>
+          <a href="how-it-works.dc.html" style="padding:9px 14px;border-radius:var(--radius-pill);color:var(--text-primary);white-space:nowrap;text-decoration:none;transition:background 200ms ease" style-hover="background:#f4f8f5;color:var(--text-primary);text-decoration:none">Cara Kerja</a>
+          <a href="faq.dc.html" style="padding:9px 14px;border-radius:var(--radius-pill);color:var(--text-primary);white-space:nowrap;text-decoration:none;transition:background 200ms ease" style-hover="background:#f4f8f5;color:var(--text-primary);text-decoration:none">FAQ</a>
+          <a href="terms.dc.html" style="padding:9px 14px;border-radius:var(--radius-pill);color:var(--text-primary);white-space:nowrap;text-decoration:none;transition:background 200ms ease" style-hover="background:#f4f8f5;color:var(--text-primary);text-decoration:none">Terma</a>
+          <a href="contact.dc.html" style="padding:9px 14px;border-radius:var(--radius-pill);color:var(--text-primary);white-space:nowrap;text-decoration:none;transition:background 200ms ease" style-hover="background:#f4f8f5;color:var(--text-primary);text-decoration:none">Hubungi</a>
+        </nav>
+        <a href="https://cal.com/hanees-hazli-zr7eva/strategy-meeting" target="_blank" rel="noopener" data-cal-link="hanees-hazli-zr7eva/strategy-meeting" data-cal-namespace="strategy-meeting" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' style="flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#152d1d 0%,#0e341a 100%);border:1px solid rgba(92,216,123,0.5);color:var(--color-white);border-radius:var(--radius-pill);padding:12px 20px;font-size:15px;font-weight:700;min-height:46px;box-sizing:border-box;white-space:nowrap;text-decoration:none;box-shadow:0 10px 24px rgba(59,177,89,0.28)" style-hover="color:var(--color-white);text-decoration:none;box-shadow:0 12px 28px rgba(59,177,89,0.4)">Book Call Strategi 15 Minit</a>
       </sc-if>
-      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
-        <button aria-label="Buka menu" sc-camel-on-click="{{ toggleMobileNav }}" style="width:44px;height:44px;flex-shrink:0;border:1px solid var(--border-subtle);border-radius:var(--radius-comfortable);background:var(--color-white);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0">
-          <svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      <sc-if value="{{ navCompact }}" hint-placeholder-val="{{ false }}">
+        <button aria-label="Buka menu" onClick="{{ toggleMobileNav }}" style="width:44px;height:44px;flex-shrink:0;border:1px solid var(--border-subtle);border-radius:var(--radius-comfortable);background:var(--color-white);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
       </sc-if>
     </div>
   </header>
 
   <sc-if value="{{ mobileNavOpen }}" hint-placeholder-val="{{ false }}">
-    <div style="position:fixed;inset:0;z-index:70;background:rgba(9,24,43,0.5)" sc-camel-on-click="{{ closeMobileNav }}"></div>
+    <div style="position:fixed;inset:0;z-index:70;background:rgba(9,24,43,0.5)" onClick="{{ closeMobileNav }}"></div>
     <div style="position:fixed;top:0;right:0;bottom:0;z-index:71;width:min(84vw,340px);background:var(--color-white);box-shadow:-12px 0 40px rgba(9,24,43,0.2);display:flex;flex-direction:column;padding:16px;gap:4px;overflow-y:auto">
       <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 4px 12px">
         <span style="font-size:18px;font-weight:600;color:var(--text-primary)">Menu</span>
-        <button aria-label="Tutup menu" sc-camel-on-click="{{ closeMobileNav }}" style="width:44px;height:44px;border:none;background:none;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-primary)">
-          <svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        <button aria-label="Tutup menu" onClick="{{ closeMobileNav }}" style="width:44px;height:44px;border:none;background:none;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-primary)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
         </button>
       </div>
-      <a href="about.dc.html" sc-camel-on-click="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Tentang Kami</a>
-      <a href="packages.dc.html" sc-camel-on-click="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Pakej</a>
-      <a href="portfolio.dc.html" sc-camel-on-click="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Portfolio</a>
-      <a href="how-it-works.dc.html" sc-camel-on-click="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Cara Kerja</a>
-      <a href="faq.dc.html" sc-camel-on-click="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">FAQ</a>
-      <a href="terms.dc.html" sc-camel-on-click="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Terma</a>
-      <a href="contact.dc.html" sc-camel-on-click="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Hubungi</a>
-      <a href="packages.dc.html" sc-camel-on-click="{{ closeMobileNav }}" style="margin-top:10px;display:flex;align-items:center;justify-content:center;min-height:48px;background:var(--grad-cta);color:var(--color-white);border-radius:var(--radius-pill);font-size:16px;font-weight:600;text-decoration:none">Lihat Pakej</a>
+      <a href="about.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Tentang Kami</a>
+      <a href="packages.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Pakej</a>
+      <a href="portfolio.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Portfolio</a>
+      <a href="how-it-works.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Cara Kerja</a>
+      <a href="faq.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">FAQ</a>
+      <a href="terms.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Terma</a>
+      <a href="contact.dc.html" onClick="{{ closeMobileNav }}" style="display:flex;align-items:center;min-height:44px;padding:10px;border-radius:var(--radius-comfortable);color:var(--text-primary);font-size:16px" style-hover="background:var(--hover-tint)">Hubungi</a>
+      <a href="https://cal.com/hanees-hazli-zr7eva/strategy-meeting" target="_blank" rel="noopener" data-cal-link="hanees-hazli-zr7eva/strategy-meeting" data-cal-namespace="strategy-meeting" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' onClick="{{ closeMobileNav }}" style="margin-top:10px;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 14px;min-height:48px;background:var(--grad-cta);color:var(--color-white);border-radius:var(--radius-pill);font-size:16px;font-weight:600;text-decoration:none">Book Call Strategi 15 Minit</a>
     </div>
   </sc-if>
 
-  <section style="position:relative;width:100%;overflow:hidden;background:radial-gradient(60% 55% at 50% 0%,rgba(92,216,123,0.28) 0%,rgba(92,216,123,0) 70%),var(--bg-page)">
-    <div style="position:relative;z-index:1;max-width:var(--content-max-width);margin:0 auto;padding:clamp(44px,7vw,84px) 20px clamp(44px,6vw,72px);display:flex;justify-content:center;text-align:center">
+  <section style="position:relative;width:100%;overflow:hidden;margin-top:-74px;background:radial-gradient(60% 55% at 50% 0%,rgba(92,216,123,0.28) 0%,rgba(92,216,123,0) 70%),var(--bg-page)">
+    <div style="position:relative;z-index:1;max-width:var(--content-max-width);margin:0 auto;padding:calc(clamp(44px,7vw,84px) + 74px) 20px clamp(44px,6vw,72px);display:flex;justify-content:center;text-align:center">
       <div data-hero="" ref="{{ heroCopyRef }}" style="display:flex;flex-direction:column;align-items:center;gap:22px;max-width:900px">
         <div style="display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px 12px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:6px 16px 6px 14px;box-shadow:0 6px 18px rgba(9,24,43,0.07)">
           <span style="display:flex;align-items:center;padding-left:9px"><span style="width:30px;height:30px;border-radius:50%;background:var(--accent-lime);border:2px solid var(--color-white);margin-left:-9px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:0.3px;color:var(--surface-dark)">JT</span><span style="width:30px;height:30px;border-radius:50%;background:var(--surface-dark);border:2px solid var(--color-white);margin-left:-9px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:0.3px;color:var(--accent-lime)">RH</span><span style="width:30px;height:30px;border-radius:50%;background:var(--accent-lime-soft);border:2px solid var(--color-white);margin-left:-9px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:0.3px;color:var(--accent-green)">DL</span></span>
@@ -235,12 +168,12 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
         <p style="margin:0;font-size:clamp(16px,3vw,19px);line-height:1.55;color:var(--text-body);max-width:56ch;text-wrap:pretty">Untuk bisnes di Kuala Lumpur &amp; Selangor. Kami bina website yang muncul di Google dan bawa enquiry terus ke WhatsApp anda, bukan sekadar nampak cantik.</p>
         <div style="display:flex;flex-wrap:nowrap;gap:8px;justify-content:center;width:100%;max-width:520px">
           <a href="packages.dc.html" style="flex:1 1 0;min-width:0;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--grad-cta);color:var(--color-white);border-radius:var(--radius-pill);padding:clamp(13px,3vw,16px) clamp(12px,3vw,28px);font-size:clamp(14px,3.6vw,16px);font-weight:600;text-decoration:none;transition:background 200ms ease;box-shadow:0 10px 24px rgba(99,240,128,0.42)" style-hover="background:var(--grad-cta-hover);text-decoration:none">Lihat Pakej RM299</a>
-          <a href="{{ waHref }}" style="flex:1 1 0;min-width:0;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--color-white);border:1px solid var(--border-interactive);color:var(--text-primary);border-radius:var(--radius-pill);padding:clamp(12px,3vw,15px) clamp(11px,3vw,27px);font-size:clamp(14px,3.6vw,16px);font-weight:600;text-decoration:none;transition:background 200ms ease" style-hover="background:var(--hover-tint);text-decoration:none"><img src="assets/brands/whatsapp.svg" alt="" width="18" height="18" style="width:18px;height:18px;flex-shrink:0">WhatsApp Kami</a>
+          <a href="{{ waHref }}" style="flex:1 1 0;min-width:0;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--color-white);border:1px solid var(--border-interactive);color:var(--text-primary);border-radius:var(--radius-pill);padding:clamp(12px,3vw,15px) clamp(11px,3vw,27px);font-size:clamp(14px,3.6vw,16px);font-weight:600;text-decoration:none;transition:background 200ms ease" style-hover="background:var(--hover-tint);text-decoration:none"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="" width="18" height="18" style="width:18px;height:18px;flex-shrink:0">WhatsApp Kami</a>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:center">
-          <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--text-primary)"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="10" height="10" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>Mockup percuma dulu</span>
-          <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--text-primary)"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="10" height="10" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>Deposit 30% untuk mula</span>
-          <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--text-primary)"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="10" height="10" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>Baki bila anda puas hati</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--text-primary)"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>Mockup percuma dulu</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--text-primary)"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>Deposit 30% untuk mula</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--text-primary)"><span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>Baki bila anda puas hati</span>
         </div>
         <sc-if value="{{ showBmLine }}" hint-placeholder-val="{{ true }}">
           <p style="margin:0;font-size:14px;color:var(--text-secondary)">Prefer English? <a href="#" data-b24-lang="toggle">English version here →</a></p>
@@ -264,17 +197,17 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
     <div style="position:relative;margin-top:clamp(28px,4vw,44px);display:flex;flex-direction:column;gap:18px">
       <div data-drag-row="1" style="overflow-x:auto;overflow-y:hidden;scrollbar-width:none;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:pan-y pan-x">
         <div style="display:flex;width:max-content;gap:14px;padding:6px clamp(20px,4vw,44px)">
-          <a data-loop-start="" href="https://pferd.com.my" target="_blank" rel="noopener" style="text-decoration:none;display:block;flex:0 0 clamp(196px,20.5vw,278px);cursor:pointer;color:inherit;background:var(--grad-dark-card);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-card);overflow:hidden;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-lime)">
+          <a data-loop-start="" href="https://binomotors.com/" target="_blank" rel="noopener" style="text-decoration:none;display:block;flex:0 0 clamp(196px,20.5vw,278px);cursor:pointer;color:inherit;background:var(--grad-dark-card);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-card);overflow:hidden;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-lime)">
             <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,0.05)">
               <span style="display:flex;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#f5665f"></span><span style="width:8px;height:8px;border-radius:50%;background:#fecf0f"></span><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-lime)"></span></span>
-              <span style="flex:1;min-width:0;text-align:center;font-size:11px;color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.06);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">pferd.com.my</span>
+              <span style="flex:1;min-width:0;text-align:center;font-size:11px;color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.06);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">binomotors.com</span>
             </div>
             <div style="position:relative;width:100%;aspect-ratio:4/3;background:rgba(255,255,255,0.06)">
-              <image-slot id="work-pferd" shape="rect" fit="cover" src="assets/portfolio/pferd.jpg" placeholder="Pferd website"></image-slot>
+              <image-slot id="work-bino" shape="rect" fit="cover" src="assets/portfolio/bino-motors.jpg" placeholder="Bino Motors website"></image-slot>
             </div>
             <div style="padding:13px;display:flex;flex-direction:column;gap:3px">
-              <span style="font-size:15px;font-weight:600;letter-spacing:-0.3px;color:var(--color-white)">Pferd</span>
-              <span style="font-size:12.5px;color:rgba(255,255,255,0.6)">Peralatan Menunggang Kuda · Shah Alam</span>
+              <span style="font-size:15px;font-weight:600;letter-spacing:-0.3px;color:var(--color-white)">Bino Motors</span>
+              <span style="font-size:12.5px;color:rgba(255,255,255,0.6)">Sewa Motosikal Premium · Petaling Jaya</span>
             </div>
           </a>
           <a href="https://www.vastiqsolutions.com/" target="_blank" rel="noopener" style="text-decoration:none;display:block;flex:0 0 clamp(196px,20.5vw,278px);cursor:pointer;color:inherit;background:var(--grad-dark-card);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-card);overflow:hidden;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-lime)">
@@ -330,17 +263,17 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
             </div>
           </a>
       
-          <a data-loop-mark="" aria-hidden="true" tabindex="-1" href="https://pferd.com.my" target="_blank" rel="noopener" style="text-decoration:none;display:block;flex:0 0 clamp(196px,20.5vw,278px);cursor:pointer;color:inherit;background:var(--grad-dark-card);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-card);overflow:hidden;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-lime)">
+          <a data-loop-mark="" aria-hidden="true" tabindex="-1" href="https://binomotors.com/" target="_blank" rel="noopener" style="text-decoration:none;display:block;flex:0 0 clamp(196px,20.5vw,278px);cursor:pointer;color:inherit;background:var(--grad-dark-card);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-card);overflow:hidden;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-lime)">
             <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,0.05)">
               <span style="display:flex;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#f5665f"></span><span style="width:8px;height:8px;border-radius:50%;background:#fecf0f"></span><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-lime)"></span></span>
-              <span style="flex:1;min-width:0;text-align:center;font-size:11px;color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.06);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">pferd.com.my</span>
+              <span style="flex:1;min-width:0;text-align:center;font-size:11px;color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.06);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">binomotors.com</span>
             </div>
             <div style="position:relative;width:100%;aspect-ratio:4/3;background:rgba(255,255,255,0.06)">
-              <image-slot id="work-pferd-c1" shape="rect" fit="cover" src="assets/portfolio/pferd.jpg" placeholder="Pferd website"></image-slot>
+              <image-slot id="work-bino-c1" shape="rect" fit="cover" src="assets/portfolio/bino-motors.jpg" placeholder="Bino Motors website"></image-slot>
             </div>
             <div style="padding:13px;display:flex;flex-direction:column;gap:3px">
-              <span style="font-size:15px;font-weight:600;letter-spacing:-0.3px;color:var(--color-white)">Pferd</span>
-              <span style="font-size:12.5px;color:rgba(255,255,255,0.6)">Peralatan Menunggang Kuda · Shah Alam</span>
+              <span style="font-size:15px;font-weight:600;letter-spacing:-0.3px;color:var(--color-white)">Bino Motors</span>
+              <span style="font-size:12.5px;color:rgba(255,255,255,0.6)">Sewa Motosikal Premium · Petaling Jaya</span>
             </div>
           </a>
           <a aria-hidden="true" tabindex="-1" href="https://www.vastiqsolutions.com/" target="_blank" rel="noopener" style="text-decoration:none;display:block;flex:0 0 clamp(196px,20.5vw,278px);cursor:pointer;color:inherit;background:var(--grad-dark-card);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-card);overflow:hidden;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-lime)">
@@ -396,17 +329,17 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
             </div>
           </a>
       
-          <a aria-hidden="true" tabindex="-1" href="https://pferd.com.my" target="_blank" rel="noopener" style="text-decoration:none;display:block;flex:0 0 clamp(196px,20.5vw,278px);cursor:pointer;color:inherit;background:var(--grad-dark-card);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-card);overflow:hidden;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-lime)">
+          <a aria-hidden="true" tabindex="-1" href="https://binomotors.com/" target="_blank" rel="noopener" style="text-decoration:none;display:block;flex:0 0 clamp(196px,20.5vw,278px);cursor:pointer;color:inherit;background:var(--grad-dark-card);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-card);overflow:hidden;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-lime)">
             <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,0.05)">
               <span style="display:flex;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#f5665f"></span><span style="width:8px;height:8px;border-radius:50%;background:#fecf0f"></span><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-lime)"></span></span>
-              <span style="flex:1;min-width:0;text-align:center;font-size:11px;color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.06);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">pferd.com.my</span>
+              <span style="flex:1;min-width:0;text-align:center;font-size:11px;color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.06);border-radius:var(--radius-pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">binomotors.com</span>
             </div>
             <div style="position:relative;width:100%;aspect-ratio:4/3;background:rgba(255,255,255,0.06)">
-              <image-slot id="work-pferd-c2" shape="rect" fit="cover" src="assets/portfolio/pferd.jpg" placeholder="Pferd website"></image-slot>
+              <image-slot id="work-bino-c2" shape="rect" fit="cover" src="assets/portfolio/bino-motors.jpg" placeholder="Bino Motors website"></image-slot>
             </div>
             <div style="padding:13px;display:flex;flex-direction:column;gap:3px">
-              <span style="font-size:15px;font-weight:600;letter-spacing:-0.3px;color:var(--color-white)">Pferd</span>
-              <span style="font-size:12.5px;color:rgba(255,255,255,0.6)">Peralatan Menunggang Kuda · Shah Alam</span>
+              <span style="font-size:15px;font-weight:600;letter-spacing:-0.3px;color:var(--color-white)">Bino Motors</span>
+              <span style="font-size:12.5px;color:rgba(255,255,255,0.6)">Sewa Motosikal Premium · Petaling Jaya</span>
             </div>
           </a>
           <a aria-hidden="true" tabindex="-1" href="https://www.vastiqsolutions.com/" target="_blank" rel="noopener" style="text-decoration:none;display:block;flex:0 0 clamp(196px,20.5vw,278px);cursor:pointer;color:inherit;background:var(--grad-dark-card);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-card);overflow:hidden;transition:transform 260ms ease,border-color 260ms ease" style-hover="transform:translateY(-6px);border-color:var(--accent-lime)">
@@ -518,7 +451,7 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
             </div>
           </a>
           <div style="flex:0 0 clamp(196px,20.5vw,278px);border-radius:var(--radius-card);border:1px dashed rgba(92,216,123,0.55);background:rgba(92,216,123,0.07);padding:24px;display:flex;flex-direction:column;justify-content:center;gap:12px">
-            <span style="width:40px;height:40px;border-radius:var(--radius-comfortable);background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>
+            <span style="width:40px;height:40px;border-radius:var(--radius-comfortable);background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>
             <span style="font-size:18px;font-weight:600;color:var(--color-white)">Seterusnya mungkin anda</span>
             <p style="margin:0;font-size:14.5px;line-height:1.55;color:rgba(255,255,255,0.72)">Live dalam 24 jam selepas brief anda, disiapkan oleh team kami.</p>
           </div>
@@ -576,7 +509,7 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
             </div>
           </a>
           <div aria-hidden="true" style="flex:0 0 clamp(196px,20.5vw,278px);border-radius:var(--radius-card);border:1px dashed rgba(92,216,123,0.55);background:rgba(92,216,123,0.07);padding:24px;display:flex;flex-direction:column;justify-content:center;gap:12px">
-            <span style="width:40px;height:40px;border-radius:var(--radius-comfortable);background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>
+            <span style="width:40px;height:40px;border-radius:var(--radius-comfortable);background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>
             <span style="font-size:18px;font-weight:600;color:var(--color-white)">Seterusnya mungkin anda</span>
             <p style="margin:0;font-size:14.5px;line-height:1.55;color:rgba(255,255,255,0.72)">Live dalam 24 jam selepas brief anda, disiapkan oleh team kami.</p>
           </div>
@@ -634,7 +567,7 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
             </div>
           </a>
           <div aria-hidden="true" style="flex:0 0 clamp(196px,20.5vw,278px);border-radius:var(--radius-card);border:1px dashed rgba(92,216,123,0.55);background:rgba(92,216,123,0.07);padding:24px;display:flex;flex-direction:column;justify-content:center;gap:12px">
-            <span style="width:40px;height:40px;border-radius:var(--radius-comfortable);background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>
+            <span style="width:40px;height:40px;border-radius:var(--radius-comfortable);background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>
             <span style="font-size:18px;font-weight:600;color:var(--color-white)">Seterusnya mungkin anda</span>
             <p style="margin:0;font-size:14.5px;line-height:1.55;color:rgba(255,255,255,0.72)">Live dalam 24 jam selepas brief anda, disiapkan oleh team kami.</p>
           </div>
@@ -651,7 +584,7 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
     </div>
     <div style="display:flex;gap:4px;overflow-x:auto;padding:4px;border-radius:var(--radius-pill);border:1px solid var(--border-subtle);align-self:flex-start;max-width:100%">
       <sc-for list="{{ capTabs }}" as="tab" hint-placeholder-count="6">
-        <span style="flex:none;display:flex;white-space:nowrap"><button type="button" sc-camel-on-click="{{ tab.onSelect }}" style="{{ tab.style }}">{{ tab.label }}</button></span>
+        <span style="flex:none;display:flex;white-space:nowrap"><button type="button" onClick="{{ tab.onSelect }}" style="{{ tab.style }}">{{ tab.label }}</button></span>
       </sc-for>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px">
@@ -665,7 +598,7 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
           <span style="font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent-lime)">Apa yang kami bina</span>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px">
             <sc-for list="{{ capChecks }}" as="c" hint-placeholder-count="4">
-              <div style="display:flex;align-items:center;gap:10px;font-size:15px;color:rgba(255,255,255,0.9)"><span style="flex:none;width:24px;height:24px;border-radius:6px;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>{{ c.label }}</div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:15px;color:rgba(255,255,255,0.9)"><span style="flex:none;width:24px;height:24px;border-radius:6px;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>{{ c.label }}</div>
             </sc-for>
           </div>
         </div>
@@ -719,10 +652,10 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px" aria-hidden="true">
       <span style="{{ st0.bar }}"></span><span style="{{ st1.bar }}"></span><span style="{{ st2.bar }}"></span>
     </div>
-    <div sc-camel-on-mouse-leave="{{ stepsLeave }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:14px">
-      <div role="button" tabindex="0" sc-camel-on-mouse-enter="{{ st0.enter }}" sc-camel-on-focus="{{ st0.enter }}" sc-camel-on-click="{{ st0.enter }}" style="{{ st0.card }}">
+    <div onMouseLeave="{{ stepsLeave }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:14px">
+      <div role="button" tabindex="0" onMouseEnter="{{ st0.enter }}" onFocus="{{ st0.enter }}" onClick="{{ st0.enter }}" style="{{ st0.card }}">
         <div style="display:flex;align-items:center;gap:12px;width:100%">
-          <span style="{{ st0.icon }}"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 15a2 2 0 0 1-2 2H8l-4 3V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9z"></path><path d="M8 9h8M8 12.5h5"></path></svg></span>
+          <span style="{{ st0.icon }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 15a2 2 0 0 1-2 2H8l-4 3V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9z"></path><path d="M8 9h8M8 12.5h5"></path></svg></span>
           <span style="{{ st0.line }}"></span>
           <span style="{{ st0.num }}">01</span>
         </div>
@@ -730,9 +663,9 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
         <span style="{{ st0.title }}">Beritahu Apa Yang Anda Perlu</span>
         <p style="{{ st0.body }}">Kami <strong style="{{ st0.strong }}">dengar dulu.</strong> Satu call pendek atau chat WhatsApp untuk faham apa yang anda perlu, landing page, website penuh, atau kedai online, dan customer macam mana yang anda nak tarik.</p>
       </div>
-      <div role="button" tabindex="0" sc-camel-on-mouse-enter="{{ st1.enter }}" sc-camel-on-focus="{{ st1.enter }}" sc-camel-on-click="{{ st1.enter }}" style="{{ st1.card }}">
+      <div role="button" tabindex="0" onMouseEnter="{{ st1.enter }}" onFocus="{{ st1.enter }}" onClick="{{ st1.enter }}" style="{{ st1.card }}">
         <div style="display:flex;align-items:center;gap:12px;width:100%">
-          <span style="{{ st1.icon }}"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c0-3.6 3.1-5.6 7-5.6s7 2 7 5.6"></path></svg></span>
+          <span style="{{ st1.icon }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c0-3.6 3.1-5.6 7-5.6s7 2 7 5.6"></path></svg></span>
           <span style="{{ st1.line }}"></span>
           <span style="{{ st1.num }}">02</span>
         </div>
@@ -740,9 +673,9 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
         <span style="{{ st1.title }}">Kami Uruskan Semuanya</span>
         <p style="{{ st1.body }}">Kami siapkan draf pertama dengan pantas. Lepas tu <strong style="{{ st1.strong }}">team kami semak setiap page satu per satu</strong>, copywriting, spacing, paparan mobile, flow WhatsApp, jadi anda tak payah kejar sesiapa.</p>
       </div>
-      <div role="button" tabindex="0" sc-camel-on-mouse-enter="{{ st2.enter }}" sc-camel-on-focus="{{ st2.enter }}" sc-camel-on-click="{{ st2.enter }}" style="{{ st2.card }}">
+      <div role="button" tabindex="0" onMouseEnter="{{ st2.enter }}" onFocus="{{ st2.enter }}" onClick="{{ st2.enter }}" style="{{ st2.card }}">
         <div style="display:flex;align-items:center;gap:12px;width:100%">
-          <span style="{{ st2.icon }}"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 10.5 13.5"></path><path d="M21 3l-6.6 18-3.9-7.5L3 9.6 21 3z"></path></svg></span>
+          <span style="{{ st2.icon }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 10.5 13.5"></path><path d="M21 3l-6.6 18-3.9-7.5L3 9.6 21 3z"></path></svg></span>
           <span style="{{ st2.line }}"></span>
           <span style="{{ st2.num }}">03</span>
         </div>
@@ -791,7 +724,7 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
           </div>
         </div>
 
-        <svg sc-camel-view-box="0 0 36 12" sc-camel-preserve-aspect-ratio="none" style="flex:0 0 36px;height:12px;align-self:center;overflow:visible">
+        <svg viewBox="0 0 36 12" preserveAspectRatio="none" style="flex:0 0 36px;height:12px;align-self:center;overflow:visible">
           <line x1="0" y1="6" x2="27" y2="6" stroke="var(--accent-green)" stroke-width="2" stroke-dasharray="4,5" stroke-linecap="round"></line>
           <polygon points="27,1.5 35,6 27,10.5" fill="var(--accent-green)"></polygon>
         </svg>
@@ -820,7 +753,7 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
           </div>
         </div>
 
-        <svg sc-camel-view-box="0 0 36 12" sc-camel-preserve-aspect-ratio="none" style="flex:0 0 36px;height:12px;align-self:center;overflow:visible">
+        <svg viewBox="0 0 36 12" preserveAspectRatio="none" style="flex:0 0 36px;height:12px;align-self:center;overflow:visible">
           <line x1="0" y1="6" x2="27" y2="6" stroke="var(--accent-green)" stroke-width="2" stroke-dasharray="4,5" stroke-linecap="round"></line>
           <polygon points="27,1.5 35,6 27,10.5" fill="var(--accent-green)"></polygon>
         </svg>
@@ -868,51 +801,51 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px">
       <div style="background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:22px 16px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:transform 200ms ease,box-shadow 200ms ease,border-color 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(9,24,43,0.1);border-color:var(--accent-green)">
-        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-7-9.6A4.4 4.4 0 0 1 12 8a4.4 4.4 0 0 1 7 3.4c0 5-7 9.6-7 9.6z"></path><path d="M12 11v4M10 13h4"></path></svg></span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-7-9.6A4.4 4.4 0 0 1 12 8a4.4 4.4 0 0 1 7 3.4c0 5-7 9.6-7 9.6z"></path><path d="M12 11v4M10 13h4"></path></svg></span>
         <span style="font-size:15px;font-weight:600;color:var(--text-primary)">Klinik &amp; Pergigian</span>
       </div>
       <div style="background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:22px 16px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:transform 200ms ease,box-shadow 200ms ease,border-color 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(9,24,43,0.1);border-color:var(--accent-green)">
-        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l7-4 7 4v13"></path><path d="M9 21v-5h6v5"></path><path d="M8 11h1M12 11h1M8 14h1M12 14h1"></path></svg></span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l7-4 7 4v13"></path><path d="M9 21v-5h6v5"></path><path d="M8 11h1M12 11h1M8 14h1M12 14h1"></path></svg></span>
         <span style="font-size:15px;font-weight:600;color:var(--text-primary)">Hartanah &amp; Property</span>
       </div>
       <div style="background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:22px 16px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:transform 200ms ease,box-shadow 200ms ease,border-color 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(9,24,43,0.1);border-color:var(--accent-green)">
-        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20h13"></path><path d="M6 4v6a3.5 3.5 0 0 0 7 0V4"></path><path d="M9.5 13.5V20"></path><path d="M17 4h2a2 2 0 0 1 0 6h-2V4z"></path></svg></span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20h13"></path><path d="M6 4v6a3.5 3.5 0 0 0 7 0V4"></path><path d="M9.5 13.5V20"></path><path d="M17 4h2a2 2 0 0 1 0 6h-2V4z"></path></svg></span>
         <span style="font-size:15px;font-weight:600;color:var(--text-primary)">Kafe &amp; F&amp;B</span>
       </div>
       <div style="background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:22px 16px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:transform 200ms ease,box-shadow 200ms ease,border-color 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(9,24,43,0.1);border-color:var(--accent-green)">
-        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6M20 9v6M7 7v10M17 7v10"></path><path d="M7 12h10"></path></svg></span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6M20 9v6M7 7v10M17 7v10"></path><path d="M7 12h10"></path></svg></span>
         <span style="font-size:15px;font-weight:600;color:var(--text-primary)">Fitness &amp; Wellness</span>
       </div>
       <div style="background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:22px 16px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:transform 200ms ease,box-shadow 200ms ease,border-color 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(9,24,43,0.1);border-color:var(--accent-green)">
-        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v7a4 4 0 0 0 8 0V3"></path><path d="M12 14v7"></path><path d="M9 21h6"></path></svg></span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v7a4 4 0 0 0 8 0V3"></path><path d="M12 14v7"></path><path d="M9 21h6"></path></svg></span>
         <span style="font-size:15px;font-weight:600;color:var(--text-primary)">Kecantikan &amp; Salon</span>
       </div>
       <div style="background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:22px 16px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:transform 200ms ease,box-shadow 200ms ease,border-color 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(9,24,43,0.1);border-color:var(--accent-green)">
-        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M5 7h14"></path><path d="M5 7 2.5 14h5L5 7zM19 7l-2.5 7h5L19 7z"></path><path d="M8 21h8"></path></svg></span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M5 7h14"></path><path d="M5 7 2.5 14h5L5 7zM19 7l-2.5 7h5L19 7z"></path><path d="M8 21h8"></path></svg></span>
         <span style="font-size:15px;font-weight:600;color:var(--text-primary)">Guaman &amp; Perundingan</span>
       </div>
       <div style="background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:22px 16px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:transform 200ms ease,box-shadow 200ms ease,border-color 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(9,24,43,0.1);border-color:var(--accent-green)">
-        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m14 4 6 6-9 9H5v-6l9-9z"></path><path d="m12 6 6 6"></path></svg></span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m14 4 6 6-9 9H5v-6l9-9z"></path><path d="m12 6 6 6"></path></svg></span>
         <span style="font-size:15px;font-weight:600;color:var(--text-primary)">Renovation &amp; Servis Rumah</span>
       </div>
       <div style="background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:22px 16px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:transform 200ms ease,box-shadow 200ms ease,border-color 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(9,24,43,0.1);border-color:var(--accent-green)">
-        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h16l-1.6-5A2 2 0 0 0 16.5 8h-9a2 2 0 0 0-1.9 1L4 14z"></path><path d="M4 14v4h16v-4"></path><circle cx="7.5" cy="17.5" r="1"></circle><circle cx="16.5" cy="17.5" r="1"></circle></svg></span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h16l-1.6-5A2 2 0 0 0 16.5 8h-9a2 2 0 0 0-1.9 1L4 14z"></path><path d="M4 14v4h16v-4"></path><circle cx="7.5" cy="17.5" r="1"></circle><circle cx="16.5" cy="17.5" r="1"></circle></svg></span>
         <span style="font-size:15px;font-weight:600;color:var(--text-primary)">Automotif &amp; Bengkel</span>
       </div>
       <div style="background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:22px 16px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:transform 200ms ease,box-shadow 200ms ease,border-color 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(9,24,43,0.1);border-color:var(--accent-green)">
-        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 9-4 9 4-9 4-9-4z"></path><path d="M7 10.5V16c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-5.5"></path><path d="M21 8v6"></path></svg></span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 9-4 9 4-9 4-9-4z"></path><path d="M7 10.5V16c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-5.5"></path><path d="M21 8v6"></path></svg></span>
         <span style="font-size:15px;font-weight:600;color:var(--text-primary)">Tuisyen &amp; Pendidikan</span>
       </div>
       <div style="background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:22px 16px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:transform 200ms ease,box-shadow 200ms ease,border-color 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(9,24,43,0.1);border-color:var(--accent-green)">
-        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg></span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg></span>
         <span style="font-size:15px;font-weight:600;color:var(--text-primary)">Runcit &amp; E-Commerce</span>
       </div>
       <div style="background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:22px 16px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:transform 200ms ease,box-shadow 200ms ease,border-color 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(9,24,43,0.1);border-color:var(--accent-green)">
-        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M8 7V5h8v2"></path><circle cx="12" cy="13.5" r="3"></circle></svg></span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M8 7V5h8v2"></path><circle cx="12" cy="13.5" r="3"></circle></svg></span>
         <span style="font-size:15px;font-weight:600;color:var(--text-primary)">Event &amp; Photography</span>
       </div>
       <div style="background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:22px 16px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:transform 200ms ease,box-shadow 200ms ease,border-color 200ms ease" style-hover="transform:translateY(-4px);box-shadow:0 14px 30px rgba(9,24,43,0.1);border-color:var(--accent-green)">
-        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"></rect><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"></path><path d="M3 12h18"></path></svg></span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--accent-lime-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"></rect><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"></path><path d="M3 12h18"></path></svg></span>
         <span style="font-size:15px;font-weight:600;color:var(--text-primary)">Servis Profesional</span>
       </div>
     </div>
@@ -925,12 +858,12 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
         <h2 style="margin:0;font-size:clamp(26px,5vw,40px);line-height:1.06;letter-spacing:-1.2px;font-weight:600;color:var(--color-white);text-wrap:pretty">Website anda patut <span style="font-family: var(--font-display-italic); font-style: italic; font-weight: 600; letter-spacing: -0.6px; color: var(--accent-lime); width: 282px; height: 102px">bayar balik kosnya.</span></h2>
         <p style="margin:0;font-size:15px;line-height:1.5;color:rgba(255,255,255,0.75);max-width:50ch;text-wrap:pretty">Setiap website distruktur untuk sokong iklan, enquiry dan pertumbuhan bisnes anda dari hari pertama.</p>
         <div style="display:flex;flex-direction:column;gap:9px">
-          <span style="display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,0.85)"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>Struktur page yang fokus pada conversion</span>
-          <span style="display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,0.85)"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>Pakar landing page &amp; funnel</span>
-          <span style="display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,0.85)"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>Tracking iklan dan analisis prestasi</span>
-          <span style="display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,0.85)"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>Boleh berkembang bersama bisnes anda</span>
+          <span style="display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,0.85)"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>Struktur page yang fokus pada conversion</span>
+          <span style="display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,0.85)"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>Pakar landing page &amp; funnel</span>
+          <span style="display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,0.85)"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>Tracking iklan dan analisis prestasi</span>
+          <span style="display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,0.85)"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>Boleh berkembang bersama bisnes anda</span>
         </div>
-        <a href="packages.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--color-white);color:var(--surface-dark);border-radius:var(--radius-pill);padding:13px 24px;font-size:15px;font-weight:600;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.9">Lihat Pakej &amp; Harga <span style="font-size:14px">↗</span></a>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center"><a href="packages.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--color-white);color:var(--surface-dark);border-radius:var(--radius-pill);padding:13px 24px;font-size:15px;font-weight:600;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.9">Lihat Pakej &amp; Harga <span style="font-size:14px">↗</span></a><a href="https://cal.com/hanees-hazli-zr7eva/strategy-meeting" target="_blank" rel="noopener" data-cal-link="hanees-hazli-zr7eva/strategy-meeting" data-cal-namespace="strategy-meeting" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' style="display:inline-flex;align-items:center;gap:10px;background:transparent;border:1px solid rgba(92,216,123,0.55);color:var(--color-white);border-radius:var(--radius-pill);padding:12px 24px;font-size:15px;font-weight:600;text-decoration:none;transition:background 200ms ease" style-hover="background:rgba(92,216,123,0.14);color:var(--color-white);text-decoration:none">Book Call Strategi 15 Minit</a></div>
       </div>
       <div style="position:relative;width:100%;aspect-ratio:4/3;border-radius:var(--radius-card);overflow:hidden;background:rgba(255,255,255,0.08)">
         <image-slot id="conversion-report" shape="rect" fit="contain" placeholder="Leads/conversion report screenshot" style="position:absolute;inset:0"></image-slot>
@@ -999,7 +932,7 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
             <span>Sekali bayar</span>
           </div>
         </div>
-        <p style="margin:0;display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border:1px solid rgba(92,216,123,0.45);background:rgba(92,216,123,0.08);border-radius:var(--radius-pill);font-family:var(--font-sans);font-size:clamp(13px,2vw,14.5px);line-height:1.35;font-weight:500;color:rgba(255,255,255,0.9);text-align:left;text-wrap:pretty"><span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span><strong style="font-weight:700;color:var(--accent-lime)">Live dalam 24 jam</strong>, atau anda tak perlu bayar baki.</span></p>
+        <p style="margin:0;display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border:1px solid rgba(92,216,123,0.45);background:rgba(92,216,123,0.08);border-radius:var(--radius-pill);font-family:var(--font-sans);font-size:clamp(13px,2vw,14.5px);line-height:1.35;font-weight:500;color:rgba(255,255,255,0.9);text-align:left;text-wrap:pretty"><span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span><strong style="font-weight:700;color:var(--accent-lime)">Live dalam 24 jam</strong>, atau anda tak perlu bayar baki.</span></p>
         <p style="margin:0;font-size:14.5px;line-height:1.5;color:rgba(255,255,255,0.8);max-width:44ch;text-wrap:pretty">Website fokus conversion, disiapkan oleh team kami sebaik anda hantar maklumat bisnes.</p>
         <span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:500;color:rgba(255,255,255,0.85)"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent-lime);box-shadow:0 0 0 4px rgba(92,216,123,0.18)"></span>Terhad kepada 20 bisnes Klang Valley pertama bulan ini</span>
       </div>
@@ -1014,14 +947,14 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
         <div style="display:flex;flex-direction:column;gap:14px">
           <span style="font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--text-secondary)">Semua sekali termasuk</span>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px 20px">
-            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">Page fokus conversion, copywriting ditulis untuk anda</span></div>
-            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">Design mobile-first, sesuai untuk trafik telefon</span></div>
-            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">Butang WhatsApp terus ke nombor bisnes anda</span></div>
-            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">Borang enquiry terus masuk ke inbox anda</span></div>
-            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">Domain dan hosting untuk tahun pertama</span></div>
-            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">Google Business Profile &amp; Search Console</span></div>
-            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">SEO asas: title, description, kelajuan page</span></div>
-            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">Disemak oleh manusia sebelum live</span></div>
+            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">Page fokus conversion, copywriting ditulis untuk anda</span></div>
+            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">Design mobile-first, sesuai untuk trafik telefon</span></div>
+            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">Butang WhatsApp terus ke nombor bisnes anda</span></div>
+            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">Borang enquiry terus masuk ke inbox anda</span></div>
+            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">Domain dan hosting untuk tahun pertama</span></div>
+            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">Google Business Profile &amp; Search Console</span></div>
+            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">SEO asas: title, description, kelajuan page</span></div>
+            <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--surface-dark);margin-top:1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span><span style="font-size:15.5px;line-height:1.5;color:var(--text-primary)">Disemak oleh manusia sebelum live</span></div>
           </div>
         </div>
         <div style="background:var(--accent-lime-soft);border-radius:var(--radius-card);padding:18px 20px;display:flex;flex-direction:column;gap:7px">
@@ -1030,7 +963,7 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center">
           <a href="contact.dc.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--grad-cta);color:var(--color-white);border-radius:var(--radius-pill);padding:16px 30px;font-size:16px;font-weight:600;text-decoration:none;flex:1 1 220px;transition:background 200ms ease" style-hover="background:var(--grad-cta-hover);text-decoration:none">Order Sekarang <span style="font-size:14px">→</span></a>
-          <a href="{{ waHref }}" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--color-white);border:1px solid var(--border-interactive);color:var(--text-primary);border-radius:var(--radius-pill);padding:16px 30px;font-size:16px;font-weight:600;text-decoration:none;flex:1 1 220px;transition:background 200ms ease" style-hover="background:var(--hover-tint);text-decoration:none"><img src="assets/brands/whatsapp.svg" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px">WhatsApp Kami</a>
+          <a href="{{ waHref }}" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--color-white);border:1px solid var(--border-interactive);color:var(--text-primary);border-radius:var(--radius-pill);padding:16px 30px;font-size:16px;font-weight:600;text-decoration:none;flex:1 1 220px;transition:background 200ms ease" style-hover="background:var(--hover-tint);text-decoration:none"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px">WhatsApp Kami</a>
         </div>
       </div>
     </div>
@@ -1041,16 +974,16 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
     <div style="margin-top:36px;padding-top:28px;border-top:1px solid var(--border-subtle);display:flex;flex-direction:column;gap:14px;align-items:center">
       <span style="font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--text-secondary)">Dibina, dijejak dan dibayar melalui</span>
       <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
-        <span title="WordPress" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="assets/brands/wordpress.svg" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">WordPress</span>
-        <span title="Shopify" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="assets/brands/shopify.svg" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">Shopify</span>
-        <span title="WooCommerce" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="assets/brands/woocommerce.svg" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">WooCommerce</span>
-        <span title="Stripe" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="assets/brands/stripe.svg" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">Stripe</span>
-        <span title="Meta Ads" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="assets/brands/meta-ads.svg" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">Meta Ads</span>
-        <span title="Google Ads" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="assets/brands/google-ads.svg" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">Google Ads</span>
-        <span title="TikTok Ads" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="assets/brands/tiktok-ads.svg" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">TikTok Ads</span>
-        <span title="WhatsApp" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="assets/brands/whatsapp.svg" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">WhatsApp</span>
-        <span title="Google Analytics" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="assets/brands/google-analytics.svg" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">Google Analytics</span>
-        <span title="Search Console" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="assets/brands/search-console.svg" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">Search Console</span>
+        <span title="WordPress" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">WordPress</span>
+        <span title="Shopify" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="https://cdn.simpleicons.org/shopify/7AB55C" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">Shopify</span>
+        <span title="WooCommerce" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="https://cdn.simpleicons.org/woocommerce/96588A" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">WooCommerce</span>
+        <span title="Stripe" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="https://cdn.simpleicons.org/stripe/635BFF" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">Stripe</span>
+        <span title="Meta Ads" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="https://cdn.simpleicons.org/meta/0866FF" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">Meta Ads</span>
+        <span title="Google Ads" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="https://cdn.simpleicons.org/googleads/4285F4" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">Google Ads</span>
+        <span title="TikTok Ads" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="https://cdn.simpleicons.org/tiktok/010101" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">TikTok Ads</span>
+        <span title="WhatsApp" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">WhatsApp</span>
+        <span title="Google Analytics" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">Google Analytics</span>
+        <span title="Search Console" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px 8px 12px;font-size:14px;font-weight:600;color:var(--text-primary)"><img src="https://cdn.simpleicons.org/googlesearchconsole/458CF5" alt="" width="18" height="18" loading="lazy" style="width:18px;height:18px;object-fit:contain">Search Console</span>
         <span style="display:inline-flex;align-items:center;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px;font-size:14px;font-weight:600;color:var(--text-primary)">FPX</span>
         <span style="display:inline-flex;align-items:center;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px;font-size:14px;font-weight:600;color:var(--text-primary)">DuitNow QR</span>
         <span style="display:inline-flex;align-items:center;background:var(--color-white);border:1px solid var(--border-subtle);border-radius:var(--radius-pill);padding:8px 16px;font-size:14px;font-weight:600;color:var(--text-primary)">TNG eWallet</span>
@@ -1116,71 +1049,71 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
       <h2 style="margin:0;font-size:clamp(28px,5.6vw,48px);line-height:1.06;letter-spacing:-1.4px;font-weight:600;color:var(--text-primary);text-wrap:pretty"><span style="font-family:var(--font-display-italic);font-style:italic;font-weight:600;letter-spacing:-0.6px;color:var(--accent-green)">Soalan Anda</span> Kami Jawab.</h2>
       <p style="margin:0;font-size:clamp(16px,3vw,18px);line-height:1.65;color:var(--text-body);max-width:70ch;text-wrap:pretty">Jawapan terus terang pasal skop, masa dan kos, perkara yang pemilik bisnes Malaysia memang tanya sebelum mula.</p>
       <div style="display:inline-flex;gap:4px;background:var(--color-charcoal-3);border-radius:var(--radius-pill);padding:5px;margin-top:6px">
-        <button type="button" sc-camel-on-click="{{ setFaqGeneral }}" style="{{ faqTabGeneralStyle }}">Umum</button>
-        <button type="button" sc-camel-on-click="{{ setFaqPricing }}" style="{{ faqTabPricingStyle }}">Harga</button>
-        <button type="button" sc-camel-on-click="{{ setFaqServices }}" style="{{ faqTabServicesStyle }}">Servis</button>
+        <button type="button" onClick="{{ setFaqGeneral }}" style="{{ faqTabGeneralStyle }}">Umum</button>
+        <button type="button" onClick="{{ setFaqPricing }}" style="{{ faqTabPricingStyle }}">Harga</button>
+        <button type="button" onClick="{{ setFaqServices }}" style="{{ faqTabServicesStyle }}">Servis</button>
       </div>
     </div>
     <div style="margin-top:clamp(24px,4vw,40px);display:flex;flex-direction:column">
       <sc-if value="{{ faqIsGeneral }}" hint-placeholder-val="{{ true }}">
         <details open="{{ isOpen }}" style="border-bottom:1px solid var(--border-subtle)">
-          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>01. Apa yang Bina 24 Jam buat untuk bisnes Malaysia?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>01. Apa yang Bina 24 Jam buat untuk bisnes Malaysia?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
           <div style="padding:0 0 24px;max-width:74ch;display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-body)">Bina 24 Jam bina benda yang bawa customer masuk, <strong style="font-weight:600;color:var(--text-primary)">website, landing page, kedai online, SEO dan video content</strong>.</p><ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:16px;line-height:1.5;color:var(--text-body)"><li><strong style="font-weight:600;color:var(--text-primary)">Design &amp; pembinaan website</strong></li><li><strong style="font-weight:600;color:var(--text-primary)">SEO &amp; Google Business Profile</strong></li><li><strong style="font-weight:600;color:var(--text-primary)">Copywriting dalam BM &amp; English</strong></li><li><strong style="font-weight:600;color:var(--text-primary)">Gambar produk studio &amp; video</strong></li></ul><p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-body)">Ambil satu servis atau gabungkan semuanya jadi satu sistem. Team kami siapkan draf dengan pantas dan semak setiap page satu per satu sebelum live.</p></div>
         </details>
         <details style="border-bottom:1px solid var(--border-subtle)">
-          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>02. Jenis bisnes apa yang anda bantu?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>02. Jenis bisnes apa yang anda bantu?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
           <div style="padding:0 0 24px;max-width:74ch;display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-body)">Klinik, kafe, studio, bengkel, pusat tuisyen, ejen hartanah dan peniaga runcit di sekitar Klang Valley, kebanyakannya bisnes yang diuruskan sendiri oleh pemilik, yang perlukan enquiry, bukan anugerah.</p></div>
         </details>
         <details style="border-bottom:1px solid var(--border-subtle)">
-          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>03. Berapa banyak masa saya kena luangkan?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>03. Berapa banyak masa saya kena luangkan?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
           <div style="padding:0 0 24px;max-width:74ch;display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-body)">Satu call pendek atau chat WhatsApp untuk brief, kemudian satu pusingan semakan sebelum live. Itu sahaja, anda berurusan dengan satu orang dari brief sampai website live.</p></div>
         </details>
         <details style="border-bottom:1px solid var(--border-subtle)">
-          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>04. Ada buat untuk bisnes luar Klang Valley?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>04. Ada buat untuk bisnes luar Klang Valley?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
           <div style="padding:0 0 24px;max-width:74ch;display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-body)">Ada. Kami berpangkalan di Selangor dan boleh jumpa klien di sekitar Klang Valley, tapi keseluruhan proses boleh jalan elok melalui WhatsApp di mana-mana di Malaysia.</p></div>
         </details>
         <details style="border-bottom:1px solid var(--border-subtle)">
-          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>05. Apa yang buat Bina 24 Jam berbeza?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>05. Apa yang buat Bina 24 Jam berbeza?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
           <div style="padding:0 0 24px;max-width:74ch;display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-body)">Proses kerja kami tersusun, jadi anda tak bayar harga agensi. Team Malaysia dengan pengalaman design 8+ tahun semak setiap page sebelum anda nampak, kemas macam agensi, laju macam builder.</p></div>
         </details>
       </sc-if>
       <sc-if value="{{ faqIsPricing }}" hint-placeholder-val="{{ false }}">
         <details open="{{ isOpen }}" style="border-bottom:1px solid var(--border-subtle)">
-          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>01. Berapa kos sebuah website?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>01. Berapa kos sebuah website?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
           <div style="padding:0 0 24px;max-width:74ch;display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-body)">Landing page bermula dari <strong style="font-weight:600;color:var(--text-primary)">RM299</strong>, website bisnes dari <strong style="font-weight:600;color:var(--text-primary)">RM499</strong>, dan kedai online dari <strong style="font-weight:600;color:var(--text-primary)">RM1,499</strong>. Setiap sebut harga ditetapkan sebelum kerja bermula.</p></div>
         </details>
         <details style="border-bottom:1px solid var(--border-subtle)">
-          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>02. Macam mana cara bayaran?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>02. Macam mana cara bayaran?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
           <div style="padding:0 0 24px;max-width:74ch;display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-body)">Deposit 30% untuk mula. Baki hanya diinvois selepas website anda live dan anda sahkan. Tiada caj tersembunyi, tiada tambahan mengejut.</p></div>
         </details>
         <details style="border-bottom:1px solid var(--border-subtle)">
-          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>03. Macam mana kalau saya tak suka design?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>03. Macam mana kalau saya tak suka design?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
           <div style="padding:0 0 24px;max-width:74ch;display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-body)">Anda tengok draf dulu sebelum live dan kami ubah ikut maklum balas. Tiada apa yang live, dan tiada baki perlu dibayar, sampai anda betul-betul puas hati.</p></div>
         </details>
         <details style="border-bottom:1px solid var(--border-subtle)">
-          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>04. Ada yuran bulanan?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>04. Ada yuran bulanan?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
           <div style="padding:0 0 24px;max-width:74ch;display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-body)">Hosting dan domain dicaj pada harga kos, dan pelan penyelenggaraan pilihan meliputi update, backup dan tracking iklan. Tiada apa ditambah tanpa anda minta.</p></div>
         </details>
       </sc-if>
       <sc-if value="{{ faqIsServices }}" hint-placeholder-val="{{ false }}">
         <details open="{{ isOpen }}" style="border-bottom:1px solid var(--border-subtle)">
-          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>01. Berapa cepat website saya boleh live?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>01. Berapa cepat website saya boleh live?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
           <div style="padding:0 0 24px;max-width:74ch;display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-body)">Kebanyakan landing page dan website kecil live dalam 24 jam selepas anda sahkan draf. Projek besar dan kedai online ambil masa lebih, kami beritahu timeline sebelum anda bayar apa-apa.</p></div>
         </details>
         <details style="border-bottom:1px solid var(--border-subtle)">
-          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>02. Website ini milik saya ke?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>02. Website ini milik saya ke?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
           <div style="padding:0 0 24px;max-width:74ch;display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-body)">Ya. Domain, hosting dan akses CMS semua diserahkan kepada anda, dan kami tunjuk cara nak uruskan sendiri.</p></div>
         </details>
         <details style="border-bottom:1px solid var(--border-subtle)">
-          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>03. Anda uruskan gambar dan copywriting sekali?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>03. Anda uruskan gambar dan copywriting sekali?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
           <div style="padding:0 0 24px;max-width:74ch;display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-body)">Ya. Kami tulis copywriting untuk setiap page, dan boleh jana atau uruskan gambar produk dan premis kalau website anda perlukan gambar sebenar.</p></div>
         </details>
         <details style="border-bottom:1px solid var(--border-subtle)">
-          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>04. Boleh handle iklan saya sekali?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>04. Boleh handle iklan saya sekali?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
           <div style="padding:0 0 24px;max-width:74ch;display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-body)">Kami pasang Meta Pixel dan Google Analytics pada setiap website supaya iklan anda boleh diukur. Pengurusan campaign berterusan ada sebagai pelan bulanan.</p></div>
         </details>
         <details style="border-bottom:1px solid var(--border-subtle)">
-          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>05. Boleh bina kedai online dengan payment?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <summary style="cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 0;font-size:clamp(17px,2.4vw,21px);font-weight:600;letter-spacing:-0.3px;color:var(--text-primary)"><span>05. Boleh bina kedai online dengan payment?</span><span style="flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--accent-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
           <div style="padding:0 0 24px;max-width:74ch;display:flex;flex-direction:column;gap:12px"><p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-body)">Boleh, Shopify atau WooCommerce, disambung ke FPX, Billplz atau e-wallet, termasuk setting penghantaran dan upload produk.</p></div>
         </details>
       </sc-if>
@@ -1202,7 +1135,7 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
           <span style="--i:5;font-size:15px;font-weight:500;color:var(--surface-dark)">· Cheras</span>
           <span style="--i:6;font-size:15px;font-weight:500;color:var(--surface-dark)">· Cyberjaya &amp; Putrajaya</span>
         </div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center"><a href="packages.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--grad-cta);color:var(--color-white);border-radius:var(--radius-pill);padding:15px 28px;font-size:15.5px;font-weight:600;text-decoration:none;transition:background 200ms ease" style-hover="background:var(--grad-cta-hover)">Lihat Pakej <span style="font-size:14px">↗</span></a><a href="contact.dc.html" style="display:inline-flex;align-items:center;gap:8px;color:var(--accent-green);font-size:15px;font-weight:600;text-decoration:none;padding:14px 4px" style-hover="text-decoration:underline">Atau book satu call <span style="font-size:13px">→</span></a></div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center"><a href="packages.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--grad-cta);color:var(--color-white);border-radius:var(--radius-pill);padding:15px 28px;font-size:15.5px;font-weight:600;text-decoration:none;transition:background 200ms ease" style-hover="background:var(--grad-cta-hover)">Lihat Pakej <span style="font-size:14px">↗</span></a><a href="https://cal.com/hanees-hazli-zr7eva/strategy-meeting" target="_blank" rel="noopener" data-cal-link="hanees-hazli-zr7eva/strategy-meeting" data-cal-namespace="strategy-meeting" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' style="display:inline-flex;align-items:center;gap:8px;color:var(--accent-green);font-size:15px;font-weight:600;text-decoration:none;padding:14px 4px" style-hover="text-decoration:underline">Book Call Strategi 15 Minit <span style="font-size:13px">→</span></a></div>
       </div>
       <div style="order:-1;position:relative;height:clamp(320px,42vw,480px);border-radius:var(--radius-container);overflow:hidden;background:rgba(9,24,43,0.08)">
         <image-slot id="service-area-map" shape="rect" fit="cover" placeholder="Google Map screenshot, Bina 24 Jam, Klang Valley" style="position:absolute;inset:0"></image-slot>
@@ -1221,25 +1154,25 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
         <h2 style="margin:0;font-size:clamp(24px,4.6vw,36px);line-height:1.1;letter-spacing:-1px;font-weight:600;color:var(--color-white);text-wrap:pretty"><span style="font-family:var(--font-display-italic);font-style:italic;font-weight:600;letter-spacing:-0.5px">Jom Bina Sesuatu</span> Yang Bawa Customer Kepada Anda.</h2>
         <div style="display:flex;flex-direction:column;gap:8px">
           <span style="display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,0.82)">
-            <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>
+            <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>
             Team Malaysia semak setiap page satu per satu.
           </span>
           <span style="display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,0.82)">
-            <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>
+            <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>
             Kami balas di WhatsApp dalam masa 24 jam.
           </span>
           <span style="display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,0.82)">
-            <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>
+            <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>
             Mockup percuma sebelum anda bayar apa-apa.
           </span>
           <span style="display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,0.82)">
-            <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>
+            <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent-lime);display:flex;align-items:center;justify-content:center;color:var(--surface-dark)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>
             Satu orang untuk berurusan, dari mula sampai live.
           </span>
         </div>
       </div>
 
-      <form sc-camel-on-submit="{{ onContactSubmit }}" style="display:flex;flex-direction:column;gap:12px" ref="{{ contactFormRef }}">
+      <form onSubmit="{{ onContactSubmit }}" style="display:flex;flex-direction:column;gap:12px" ref="{{ contactFormRef }}">
         <label style="display:flex;flex-direction:column;gap:6px;color:var(--color-white)"><span style="display:flex;align-items:center;gap:5px;font-size:14px;font-weight:500">Nama Penuh <span style="color:var(--accent-lime)">*</span></span>
           <input type="text" name="full_name" required="{{ true }}" placeholder="Cth: Ahmad Faiz" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:var(--radius-comfortable);padding:11px 16px;font-family:var(--font-sans);font-size:15px;color:var(--color-white);outline:none;transition:border-color 180ms ease" style-focus="border-color:var(--accent-lime)">
         </label>
@@ -1252,13 +1185,13 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
           </label>
         </div>
         <label style="display:flex;flex-direction:column;gap:6px;color:var(--color-white)"><span style="display:flex;align-items:center;gap:5px;font-size:14px;font-weight:500">Anda perlukan bantuan apa? <span style="color:var(--accent-lime)">*</span></span>
-          <sc-raw-select name="help_type" required="{{ true }}" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:var(--radius-comfortable);padding:11px 16px;font-family:var(--font-sans);font-size:15px;color:var(--color-white);outline:none;appearance:none;transition:border-color 180ms ease" style-focus="border-color:var(--accent-lime)">
+          <select name="help_type" required="{{ true }}" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:var(--radius-comfortable);padding:11px 16px;font-family:var(--font-sans);font-size:15px;color:var(--color-white);outline:none;appearance:none;transition:border-color 180ms ease" style-focus="border-color:var(--accent-lime)">
             <option style="color:var(--color-charcoal)">Landing page untuk iklan saya</option>
             <option style="color:var(--color-charcoal)">Website bisnes penuh dengan SEO</option>
             <option style="color:var(--color-charcoal)">Kedai online</option>
             <option style="color:var(--color-charcoal)">Video &amp; content production</option>
             <option style="color:var(--color-charcoal)">Belum pasti, tolong nasihatkan</option>
-          </sc-raw-select>
+          </select>
         </label>
         <label style="display:flex;flex-direction:column;gap:6px;color:var(--color-white)"><span style="font-size:14px;font-weight:500">Website sedia ada (audit &amp; mockup percuma)</span>
           <input type="text" name="website" placeholder="yourbusiness.com" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:var(--radius-comfortable);padding:11px 16px;font-family:var(--font-sans);font-size:15px;color:var(--color-white);outline:none;transition:border-color 180ms ease" style-focus="border-color:var(--accent-lime)">
@@ -1288,16 +1221,16 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
         <span style="font-size:14px;color:rgba(255,255,255,0.55)">Selangor, Malaysia</span>
         <div style="display:flex;gap:10px;margin-top:4px">
           <a href="https://www.instagram.com/bina24jam?stkn=YzJpcmhldndtdGVu&amp;utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7)" style-hover="border-color:var(--accent-lime);color:var(--accent-lime)">
-            <svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"></circle></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"></circle></svg>
           </a>
           <a href="https://www.facebook.com/share/19jDjc7cBN/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7)" style-hover="border-color:var(--accent-lime);color:var(--accent-lime)">
-            <svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 8.5h2.5V5h-2.7C11.5 5 10 6.6 10 9v2.2H8V15h2v6h3v-6h2.3l.4-3.8H13V9c0-.4.2-.5.6-.5H14z"></path></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 8.5h2.5V5h-2.7C11.5 5 10 6.6 10 9v2.2H8V15h2v6h3v-6h2.3l.4-3.8H13V9c0-.4.2-.5.6-.5H14z"></path></svg>
           </a>
           <a href="https://www.threads.com/@bina24jam?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener" aria-label="Threads" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7)" style-hover="border-color:var(--accent-lime);color:var(--accent-lime)">
-            <svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.4 8.4C18.4 5.6 15.9 4.2 12.3 4.2 7.3 4.2 4.4 7.3 4.4 12s2.9 7.8 7.9 7.8c4.3 0 7.2-1.9 7.2-4.7 0-1.9-1.5-3.1-4.7-3.1"></path><path d="M9 9.6c.6-1.4 1.6-2.2 3-2.2 1.9 0 2.8 1.4 2.8 3.6v3.2"></path><circle cx="12.2" cy="14.1" r="2.6"></circle></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.4 8.4C18.4 5.6 15.9 4.2 12.3 4.2 7.3 4.2 4.4 7.3 4.4 12s2.9 7.8 7.9 7.8c4.3 0 7.2-1.9 7.2-4.7 0-1.9-1.5-3.1-4.7-3.1"></path><path d="M9 9.6c.6-1.4 1.6-2.2 3-2.2 1.9 0 2.8 1.4 2.8 3.6v3.2"></path><circle cx="12.2" cy="14.1" r="2.6"></circle></svg>
           </a>
           <a href="{{ waHref }}" aria-label="WhatsApp" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.7)" style-hover="border-color:var(--accent-lime);color:var(--accent-lime)">
-            <svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none"><path d="M3.6 20.4l1.3-4.6A8.9 8.9 0 1 1 8.2 19.1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path fill="currentColor" d="M9.1 7.6c-.2-.4-.3-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.9 4.5 4 2.2.9 2.7.7 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.6-1.5-1.9-.2-.3 0-.4.1-.5l.4-.4.3-.5c.1-.2 0-.3 0-.4l-.8-2z"></path></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M3.6 20.4l1.3-4.6A8.9 8.9 0 1 1 8.2 19.1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path fill="currentColor" d="M9.1 7.6c-.2-.4-.3-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.9 4.5 4 2.2.9 2.7.7 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.6-1.5-1.9-.2-.3 0-.4.1-.5l.4-.4.3-.5c.1-.2 0-.3 0-.4l-.8-2z"></path></svg>
           </a>
         </div>
       </div>
@@ -1330,7 +1263,7 @@ a[style*="radius-pill"],button[style*="radius-pill"]{white-space:nowrap}
 
 
 </x-dc>
-<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:420,&quot;height&quot;:900},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;601175112280&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;whatsappMessage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Hi Bina 24 Jam, saya nak buat website untuk bisnes saya.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;showBmLine&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:420,&quot;height&quot;:900},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;601175112280&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;whatsappMessage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Hi Bina 24 Jam, saya nak buat website untuk bisnes saya.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;showBmLine&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -1343,11 +1276,12 @@ class Component extends DCLogic {
     this.contactFormRef = React.createRef();
     this.onScroll = this.onScroll.bind(this);
     this.onResize = this.onResize.bind(this);
-    this.state = { mobileNavOpen: false, isMobile: (typeof window !== 'undefined' && window.innerWidth < 768) };
+    this.state = { mobileNavOpen: false, isMobile: (typeof window !== 'undefined' && window.innerWidth < 768), navCompact: (typeof window !== 'undefined' && window.innerWidth < 1100) };
   }
   onResize() {
     const isMobile = window.innerWidth < 768;
-    if (isMobile !== this.state.isMobile) this.setState({ isMobile, mobileNavOpen: isMobile ? this.state.mobileNavOpen : false });
+    const navCompact = window.innerWidth < 1100;
+    if (isMobile !== this.state.isMobile || navCompact !== this.state.navCompact) this.setState({ isMobile, navCompact, mobileNavOpen: navCompact ? this.state.mobileNavOpen : false });
   }
   componentDidMount() {
     const boot = () => { if (window.RCMotion) window.RCMotion.init(this.rootRef.current || document.body); };
@@ -1600,8 +1534,9 @@ class Component extends DCLogic {
       heroCopyRef: this.heroCopyRef,
       rootRef: this.rootRef,
       isMobile: this.state.isMobile,
-      showDesktopNav: !this.state.isMobile,
-      mobileNavOpen: this.state.isMobile && this.state.mobileNavOpen,
+      showDesktopNav: !this.state.navCompact,
+      navCompact: this.state.navCompact,
+      mobileNavOpen: this.state.navCompact && this.state.mobileNavOpen,
       toggleMobileNav: () => this.setState(s => ({ mobileNavOpen: !s.mobileNavOpen })),
       closeMobileNav: () => this.setState({ mobileNavOpen: false })
     };
@@ -1609,6 +1544,5 @@ class Component extends DCLogic {
 }
 
 </script>
-
-
-</body></html>
+</body>
+</html>

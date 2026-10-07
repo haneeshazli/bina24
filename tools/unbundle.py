@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Turn a Claude Design *bundled* page export back into repo project-source form.
 
-    tools/unbundle.py <bundle.html> <page-name>
+    tools/unbundle.py <bundle.html>              # whole-site bundle
+    tools/unbundle.py <bundle.html> <page-name>  # single-page bundle
 
 The "download as single file" export is one self-contained HTML: a loader
 script plus three JSON islands — a manifest of every asset (base64, some
@@ -25,6 +26,15 @@ same shape as the rest and be composed by tools/compose.sh:
   - webfonts are self-hosted as woff2. The bundle also carries woff/ttf/svg
     fallbacks for the icon font (~8MB) that no browser reaching this site would
     pick over woff2, so those sources are dropped from the src: list.
+
+A *whole-site* bundle carries all eight pages instead of one. Its root template
+is not a page at all — it is a hash router that mounts each page in turn so the
+single file can be clicked through — so with no <page-name> the pages are taken
+from the manifest and the router is used only for the design system and the
+bridge stylesheet it inlines. Each page's own `_ds/<project-id>/` links are
+repointed at the reconstructed design system; the runtime scripts the pages load
+are expected to be in the repo already, and any that are not are named in the
+report.
 """
 
 import base64
@@ -34,6 +44,7 @@ import json
 import os
 import re
 import sys
+from urllib.parse import unquote
 
 UUID = r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
 
@@ -51,6 +62,46 @@ SHEET_NAMES = [
 ]
 
 SUBSET_RE = re.compile(r'/\*\s*([a-z0-9-]+)\s*\*/\s*$')
+
+# The design system's bridge sheet — legacy token names mapped onto Vela Ranks
+# values. The pages link it as a file; the router shell inlines it, so that is
+# where a whole-site bundle carries it.
+BRIDGE_MARK = 'legacy token names remapped onto Vela Ranks'
+BRIDGE_PATH = 'vela-bridge.css'
+
+# A relative src/href, i.e. one that names a file this repo has to ship. Skips
+# absolute URLs, fragments and the runtime's {{ ... }} template vars.
+LOCAL_REF = re.compile(r'(?:src|href)="(?!\{\{)([^"{}:#][^"{}:]*)"')
+
+
+def page_name(res_id):
+    """Repo page name for an ext-resource id like './Bina%2024%20Jam.dc.html'."""
+    base = os.path.basename(unquote(res_id.split('?')[0]))
+    stem = slug(re.sub(r'\.dc\.html$', '', base, flags=re.I))
+    return 'index' if stem in ('bina-24-jam', 'home') else stem
+
+
+def repoint_ds(text, DS):
+    """Point a page's design-system links at the reconstructed one.
+
+    A page out of the export links every token sheet *and* the styles.css that
+    imports them, under the design system's full project id. The reconstruction
+    lives under the short namespace id and its styles.css carries the imports,
+    so the whole run of links collapses to that one sheet.
+    """
+    m = re.search(r'_ds/([^/"]+)/_ds_bundle\.js', text)
+    if not m:
+        return None
+    src = '_ds/%s/' % m.group(1)
+    link = re.compile(r'[ \t]*<link rel="stylesheet" href="%s[^"]*\.css">\n'
+                      % re.escape(src))
+    first = link.search(text)
+    if not first:
+        return None
+    text = (text[:first.start()]
+            + '<link rel="stylesheet" href="%s/styles.css">\n' % DS
+            + link.sub('', text[first.start():]))
+    return text.replace(src, DS + '/')
 
 
 def slug(s):
@@ -139,9 +190,10 @@ def split_stylesheets(helmet):
 
 
 def main():
-    if len(sys.argv) != 3:
-        sys.exit('usage: tools/unbundle.py <bundle.html> <page-name>')
-    bundle_path, page = sys.argv[1], sys.argv[2]
+    if len(sys.argv) not in (2, 3):
+        sys.exit('usage: tools/unbundle.py <bundle.html> [page-name]')
+    bundle_path = sys.argv[1]
+    page = sys.argv[2] if len(sys.argv) == 3 else None
     repo = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     b = read_bundle(bundle_path)
@@ -281,6 +333,52 @@ def main():
         plan[u] = 'assets/%s.%s' % (u[:8], mime.rsplit('/', 1)[-1])
         write(plan[u], blob[u])
         report.append('  ? unidentified asset -> %s' % plan[u])
+
+    # ── the pages ──────────────────────────────────────────────────────────
+    if page is None:
+        pages = [(page_name(e['id']), e['uuid']) for e in b['ext_resources']
+                 if re.search(r'\.dc\.html$', unquote(e['id']), re.I)]
+        if not pages:
+            sys.exit('!! bundle carries no pages; name one to unbundle its '
+                     'root template as that page instead')
+
+        bridge = next((css for n, (_s, _e, css) in enumerate(blocks)
+                       if n != agg_i and n not in sheet_path
+                       and BRIDGE_MARK in css), None)
+        if bridge is None:
+            sys.exit('!! router shell inlines no bridge stylesheet')
+        write(BRIDGE_PATH, bridge.strip() + '\n')
+
+        refs = set()
+        for name, uuid in sorted(pages):
+            src = repoint_ds(blob[uuid].decode('utf-8'), DS)
+            if src is None:
+                sys.exit('!! %s links no design system' % name)
+            if '_ds/%s/' % os.path.basename(DS) not in src:
+                sys.exit('!! %s: design-system links did not repoint' % name)
+            write('design-source/pages/%s.dc.html' % name, src)
+            refs.update(r.lstrip('./') for r in LOCAL_REF.findall(src))
+
+        # The export leaves out the runtime scripts it did not itself generate,
+        # so a page naming a file the repo lacks is a 404 in production. Name
+        # them rather than let the build pass quietly.
+        for r in sorted(refs):
+            if r.endswith('.dc.html'):          # compose.sh rewrites these
+                continue
+            if not os.path.exists(os.path.join(repo, r)):
+                report.append('  ! referenced but not in the repo: %s' % r)
+
+        print('==> design system: %s' % DS)
+        print('==> wrote %d files' % len(written))
+        for p in sorted(written):
+            print('    %-58s %8d B'
+                  % (p, os.path.getsize(os.path.join(repo, p))))
+        print('==> dropped %d font fallback sources (woff/ttf/svg), %d B'
+              % (len(dropped), sum(len(blob[u]) for u in dropped)))
+        if report:
+            print('==> review:')
+            print('\n'.join(report))
+        return
 
     # ── rebuild the page ───────────────────────────────────────────────────
     new_helmet = []
